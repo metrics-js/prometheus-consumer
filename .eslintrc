@@ -1,41 +1,18 @@
 {
-  "root": true,
-  "plugins": ["import"],
-  "parserOptions": {
-    "ecmaVersion": 2017,
-    "ecmaFeatures": {
-      "experimentalObjectRestSpread": true
-    }
-  },
-  "extends": [
-    "plugin:import/recommended",
-    "finn",
-    "finn/node",
-    "finn-prettier"
-  ],
-  "rules": {
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": false
-      }
+    "extends": ["airbnb-base", "plugin:prettier/recommended"],
+    "parserOptions": {
+        "ecmaVersion": 2018
+    },
+    "rules": {
+        "strict": [0, "global"],
+        "class-methods-use-this": [0]
+    },
+    "overrides": [
+        {
+            "files": "src/layouts/frontpage/assets/**/*",
+            "env": {
+                "browser": true
+            }
+        }
     ]
-  },
-  "overrides": [
-    {
-      "files": "test/**/*",
-      "env": {
-        "jest": true,
-        "node": true
-      },
-      "rules": {
-        "import/no-extraneous-dependencies": [
-          "error",
-          {
-            "devDependencies": true
-          }
-        ]
-      }
-    }
-  ]
 }

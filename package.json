@@ -1,18 +1,24 @@
 {
-  "name": "@metrics/prometheus-consumer",
-  "version": "3.0.0",
-  "files": [
-    "lib/",
-    "schemas/"
-  ],
-  "description": "A Streaming prometheus metrics consumer intended for use with @metrics/client metric streams",
-  "main": "lib/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Richard Walker <digitalsadhu@gmail.com>",
-  "dependencies": {
-    "joi": "^13.2.0",
-    "readable-stream": "^2.3.3"
-  }
+    "name": "@metrics/prometheus-consumer",
+    "version": "3.0.0",
+    "files": [
+        "lib/",
+        "schemas/"
+    ],
+    "description": "A Streaming prometheus metrics consumer intended for use with @metrics/client metric streams",
+    "main": "lib/index.js",
+    "scripts": {
+        "test": "jest ."
+    },
+    "author": "Richard Walker <digitalsadhu@gmail.com>",
+    "dependencies": {
+        "joi": "^13.2.0",
+        "readable-stream": "^2.3.3"
+    },
+    "jest": {
+        "testEnvironment": "node"
+    },
+    "devDependencies": {
+        "prom-client": "^11.1.3"
+    }
 }

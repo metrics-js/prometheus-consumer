@@ -3,6 +3,7 @@
 const PrometheusMetricsConsumer = require('../lib');
 const { Readable } = require('readable-stream');
 
+const promClient = require('prom-client');
 const { register: globalRegistry } = require('prom-client');
 
 beforeEach(() => {
@@ -21,14 +22,14 @@ const src = arr =>
     });
 
 test('toString returns correct object name', () => {
-    expect(new PrometheusMetricsConsumer().toString()).toBe(
-        '[object PrometheusMetricsConsumer]'
-    );
+    expect(
+        new PrometheusMetricsConsumer({ client: promClient }).toString()
+    ).toBe('[object PrometheusMetricsConsumer]');
 });
 
 test('metrics interpreted as a counter', done => {
     expect.hasAssertions();
-    const consumer = new PrometheusMetricsConsumer();
+    const consumer = new PrometheusMetricsConsumer({ client: promClient });
 
     const source = src([
         { name: 'my_counter', description: '.' },
@@ -46,7 +47,7 @@ test('metrics interpreted as a counter', done => {
 
 test('metrics interpreted as a histogram', done => {
     expect.hasAssertions();
-    const consumer = new PrometheusMetricsConsumer();
+    const consumer = new PrometheusMetricsConsumer({ client: promClient });
 
     const source = src([
         { name: 'my_histogram', description: '.', time: 0.1 },
@@ -69,7 +70,7 @@ test('metrics interpreted as a histogram', done => {
 
 test('gauge metrics interpreted as counters', done => {
     expect.hasAssertions();
-    const consumer = new PrometheusMetricsConsumer();
+    const consumer = new PrometheusMetricsConsumer({ client: promClient });
 
     const source = src([
         { name: 'my_gauge', description: '.', value: 10 },
@@ -86,7 +87,7 @@ test('gauge metrics interpreted as counters', done => {
 
 test('mixed metrics interpreted correctly', done => {
     expect.hasAssertions();
-    const consumer = new PrometheusMetricsConsumer();
+    const consumer = new PrometheusMetricsConsumer({ client: promClient });
 
     const source = src([
         { name: 'mixed_counter', description: '.', timestamp: 12324355 },
@@ -140,7 +141,7 @@ test('mixed metrics interpreted correctly', done => {
 
 test('time metrics overridden to be summaries', done => {
     expect.hasAssertions();
-    const consumer = new PrometheusMetricsConsumer();
+    const consumer = new PrometheusMetricsConsumer({ client: promClient });
 
     consumer.override('time_series', { type: 'summary' });
 
@@ -193,7 +194,7 @@ test('time metrics overridden to be summaries', done => {
 
 test('metrics with labels', done => {
     expect.hasAssertions();
-    const consumer = new PrometheusMetricsConsumer();
+    const consumer = new PrometheusMetricsConsumer({ client: promClient });
 
     const source = src([
         {
@@ -222,12 +223,14 @@ test('metrics with labels', done => {
 
 test('invalid constructor options', () => {
     expect.hasAssertions();
-    expect(() => new PrometheusMetricsConsumer({ fake: 'key' })).toThrowError();
+    expect(
+        () => new PrometheusMetricsConsumer({ client: promClient, fake: 'key' })
+    ).toThrowError();
 });
 
 test('.override() missing name', () => {
     expect.hasAssertions();
-    const consumer = new PrometheusMetricsConsumer();
+    const consumer = new PrometheusMetricsConsumer({ client: promClient });
     expect(() => {
         consumer.override();
     }).toThrowErrorMatchingSnapshot();
@@ -235,7 +238,7 @@ test('.override() missing name', () => {
 
 test('.override() invalid name', () => {
     expect.hasAssertions();
-    const consumer = new PrometheusMetricsConsumer();
+    const consumer = new PrometheusMetricsConsumer({ client: promClient });
     expect(() => {
         consumer.override('my name is bad');
     }).toThrowErrorMatchingSnapshot();
@@ -243,7 +246,7 @@ test('.override() invalid name', () => {
 
 test('.override() invalid type', () => {
     expect.hasAssertions();
-    const consumer = new PrometheusMetricsConsumer();
+    const consumer = new PrometheusMetricsConsumer({ client: promClient });
     expect(() => {
         consumer.override('valid_name', { type: 'not allowed type' });
     }).toThrowErrorMatchingSnapshot();
@@ -251,7 +254,7 @@ test('.override() invalid type', () => {
 
 test('.override() sets a metric to be a counter', done => {
     expect.hasAssertions();
-    const consumer = new PrometheusMetricsConsumer();
+    const consumer = new PrometheusMetricsConsumer({ client: promClient });
     const source = src([{ name: 'valid_name', description: '.', time: 12345 }]);
 
     consumer.override('valid_name', { type: 'counter' });
@@ -265,7 +268,7 @@ test('.override() sets a metric to be a counter', done => {
 
 test('.override() sets a metric to be a histogram with specific buckets', done => {
     expect.hasAssertions();
-    const consumer = new PrometheusMetricsConsumer();
+    const consumer = new PrometheusMetricsConsumer({ client: promClient });
     const source = src([
         {
             name: 'overridden_histogram',
@@ -294,7 +297,7 @@ test('.override() sets a metric to be a histogram with specific buckets', done =
 
 test('.override() sets a metric to be `histogram` but received metric is not valid for histogram type', done => {
     expect.hasAssertions();
-    const consumer = new PrometheusMetricsConsumer();
+    const consumer = new PrometheusMetricsConsumer({ client: promClient });
 
     const source = src([
         {
@@ -314,7 +317,7 @@ test('.override() sets a metric to be `histogram` but received metric is not val
 
 test('.override() sets a counter with custom labels', done => {
     expect.hasAssertions();
-    const consumer = new PrometheusMetricsConsumer();
+    const consumer = new PrometheusMetricsConsumer({ client: promClient });
 
     const source = src([
         {
@@ -340,7 +343,7 @@ test('.override() sets a counter with custom labels', done => {
 
 test('.override() sets a histogram with custom labels', done => {
     expect.hasAssertions();
-    const consumer = new PrometheusMetricsConsumer();
+    const consumer = new PrometheusMetricsConsumer({ client: promClient });
 
     const source = src([
         {

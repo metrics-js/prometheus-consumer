@@ -52,10 +52,12 @@ const metricsConsumer = new PrometheusConsumer({ client: promClient });
 
 ### Step 2.
 
-Pipe the metrics output stream directly into our consumer
+Pipe the metrics output stream directly into our consumer making sure to add an error handler to avoid uncaught exceptions.
 
 ```js
 const client = new MetricsClient();
+
+metricsConsumer.on('error', err => console.error(err));
 
 client.pipe(metricsConsumer);
 ```
@@ -84,10 +86,16 @@ app.get('/metrics', (req, res) => {
 
 Create a new metrics consumer instance ready to have metrics piped into it.
 
-_Example_
+_Examples_
 
 ```js
 const consumer = new PrometheusConsumer({ client: promClient });
+```
+
+remember to add an error handler to the consumer to avoid uncaught exception errors.
+
+```js
+consumer.on('error', err => console.error(err));
 ```
 
 #### options

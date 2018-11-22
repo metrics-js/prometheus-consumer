@@ -186,7 +186,9 @@ test('time metrics overridden to be summaries', done => {
 
     consumer.on('finish', () => {
         // eslint-disable-next-line no-underscore-dangle
-        expect(consumer.registry._metrics).toMatchSnapshot();
+        expect(consumer.registry._metrics.time_series).toBeInstanceOf(
+            promClient.Summary,
+        );
         done();
     });
 });

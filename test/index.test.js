@@ -369,3 +369,31 @@ test('.override() sets a histogram with custom labels', done => {
     });
     source.pipe(consumer);
 });
+
+test('.contentType() method', () => {
+    expect.hasAssertions();
+    const consumer = new PrometheusMetricsConsumer({ client: promClient });
+    expect(consumer.contentType()).toBe(
+        'text/plain; version=0.0.4; charset=utf-8',
+    );
+});
+
+test('.metrics() method', done => {
+    expect.hasAssertions();
+    const consumer = new PrometheusMetricsConsumer({ client: promClient });
+    const source = src([
+        {
+            name: 'custom_label_histogram',
+            description: '.',
+            time: 12324,
+            url: 'http://example.com',
+            method: 'GET',
+        },
+    ]);
+
+    consumer.on('finish', () => {
+        expect(consumer.metrics()).toMatchSnapshot();
+        done();
+    });
+    source.pipe(consumer);
+});

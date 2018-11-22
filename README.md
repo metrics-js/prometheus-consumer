@@ -78,7 +78,7 @@ app.get('/metrics', (req, res) => {
 ## API
 
 -   [constructor](#constructoroptions)
-    -   [override](#overridenameconfig)
+    -   [override](#overridename-config)
     -   [metrics](#metrics)
     -   [contentType](#contenttype)
 

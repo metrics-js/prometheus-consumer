@@ -13,6 +13,6 @@ The latest version of this document is always available in [releases][releases-u
 -   .contentType() method added
 -   lint fixing
 
-[unreleased]: https://github.schibsted.io/finn/express-backstage-pages/compare/v2.0.0...HEAD
-[2.0.0]: https://github.schibsted.io/finn/express-backstage-pages/compare/v1.0.0...v2.0.0
-[releases-url]: https://github.schibsted.io/finn/express-backstage-pages/blob/master/CHANGELOG.md
+[unreleased]: https://github.com/metrics-js/prometheus-consumer/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/metrics-js/prometheus-consumer/compare/v1.0.0...v2.0.0
+[releases-url]: https://github.com/metrics-js/prometheus-consumer/blob/master/CHANGELOG.md

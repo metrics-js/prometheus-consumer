@@ -1,14 +1,9 @@
 'use strict';
 
-const PrometheusMetricsConsumer = require('../lib');
 const { Readable } = require('readable-stream');
 
 const promClient = require('prom-client');
-const { register: globalRegistry } = require('prom-client');
-
-beforeEach(() => {
-    globalRegistry.clear();
-});
+const PrometheusMetricsConsumer = require('../lib');
 
 const src = arr =>
     new Readable({
@@ -23,7 +18,7 @@ const src = arr =>
 
 test('toString returns correct object name', () => {
     expect(
-        new PrometheusMetricsConsumer({ client: promClient }).toString()
+        new PrometheusMetricsConsumer({ client: promClient }).toString(),
     ).toBe('[object PrometheusMetricsConsumer]');
 });
 
@@ -40,7 +35,9 @@ test('metrics interpreted as a counter', done => {
     source.pipe(consumer);
 
     consumer.on('finish', () => {
-        expect(globalRegistry.getSingleMetric('my_counter')).toMatchSnapshot();
+        expect(
+            consumer.registry.getSingleMetric('my_counter'),
+        ).toMatchSnapshot();
         done();
     });
 });
@@ -62,7 +59,7 @@ test('metrics interpreted as a histogram', done => {
 
     consumer.on('finish', () => {
         expect(
-            globalRegistry.getSingleMetric('my_histogram')
+            consumer.registry.getSingleMetric('my_histogram'),
         ).toMatchSnapshot();
         done();
     });
@@ -80,7 +77,7 @@ test('gauge metrics interpreted as counters', done => {
     source.pipe(consumer);
 
     consumer.on('finish', () => {
-        expect(globalRegistry.getSingleMetric('my_gauge')).toMatchSnapshot();
+        expect(consumer.registry.getSingleMetric('my_gauge')).toMatchSnapshot();
         done();
     });
 });
@@ -134,7 +131,8 @@ test('mixed metrics interpreted correctly', done => {
     source.pipe(consumer);
 
     consumer.on('finish', () => {
-        expect(globalRegistry._metrics).toMatchSnapshot();
+        // eslint-disable-next-line no-underscore-dangle
+        expect(consumer.registry._metrics).toMatchSnapshot();
         done();
     });
 });
@@ -187,7 +185,10 @@ test('time metrics overridden to be summaries', done => {
     source.pipe(consumer);
 
     consumer.on('finish', () => {
-        expect(globalRegistry._metrics).toMatchSnapshot();
+        // eslint-disable-next-line no-underscore-dangle
+        expect(consumer.registry._metrics.time_series).toBeInstanceOf(
+            promClient.Summary,
+        );
         done();
     });
 });
@@ -215,7 +216,7 @@ test('metrics with labels', done => {
 
     consumer.on('finish', () => {
         expect(
-            globalRegistry.getSingleMetric('my_counter_with_labels')
+            consumer.registry.getSingleMetric('my_counter_with_labels'),
         ).toMatchSnapshot();
         done();
     });
@@ -224,7 +225,8 @@ test('metrics with labels', done => {
 test('invalid constructor options', () => {
     expect.hasAssertions();
     expect(
-        () => new PrometheusMetricsConsumer({ client: promClient, fake: 'key' })
+        () =>
+            new PrometheusMetricsConsumer({ client: promClient, fake: 'key' }),
     ).toThrowError();
 });
 
@@ -261,7 +263,9 @@ test('.override() sets a metric to be a counter', done => {
     source.pipe(consumer);
 
     consumer.on('finish', () => {
-        expect(globalRegistry.getSingleMetric('valid_name')).toMatchSnapshot();
+        expect(
+            consumer.registry.getSingleMetric('valid_name'),
+        ).toMatchSnapshot();
         done();
     });
 });
@@ -289,7 +293,7 @@ test('.override() sets a metric to be a histogram with specific buckets', done =
 
     consumer.on('finish', () => {
         expect(
-            globalRegistry.getSingleMetric('overridden_histogram')
+            consumer.registry.getSingleMetric('overridden_histogram'),
         ).toMatchSnapshot();
         done();
     });
@@ -330,7 +334,7 @@ test('.override() sets a counter with custom labels', done => {
 
     consumer.on('finish', () => {
         expect(
-            globalRegistry.getSingleMetric('custom_label_counter')
+            consumer.registry.getSingleMetric('custom_label_counter'),
         ).toMatchSnapshot();
         done();
     });
@@ -357,13 +361,41 @@ test('.override() sets a histogram with custom labels', done => {
 
     consumer.on('finish', () => {
         expect(
-            globalRegistry.getSingleMetric('custom_label_histogram')
+            consumer.registry.getSingleMetric('custom_label_histogram'),
         ).toMatchSnapshot();
         done();
     });
 
     consumer.override('custom_label_histogram', {
         type: 'histogram',
+    });
+    source.pipe(consumer);
+});
+
+test('.contentType() method', () => {
+    expect.hasAssertions();
+    const consumer = new PrometheusMetricsConsumer({ client: promClient });
+    expect(consumer.contentType()).toBe(
+        'text/plain; version=0.0.4; charset=utf-8',
+    );
+});
+
+test('.metrics() method', done => {
+    expect.hasAssertions();
+    const consumer = new PrometheusMetricsConsumer({ client: promClient });
+    const source = src([
+        {
+            name: 'custom_label_histogram',
+            description: '.',
+            time: 12324,
+            url: 'http://example.com',
+            method: 'GET',
+        },
+    ]);
+
+    consumer.on('finish', () => {
+        expect(consumer.metrics()).toMatchSnapshot();
+        done();
     });
     source.pipe(consumer);
 });

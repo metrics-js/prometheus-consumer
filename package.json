@@ -1,6 +1,6 @@
 {
     "name": "@metrics/prometheus-consumer",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "files": [
         "lib/",
         "schemas/"

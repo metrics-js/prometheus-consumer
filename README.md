@@ -1,5 +1,7 @@
 # Prometheus metrics consumer
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/metrics-js/prometheus-consumer.svg)](https://greenkeeper.io/)
+
 A prometheus based streaming consumer for metric streams.
 
 ## How it works

@@ -126,6 +126,34 @@ test('mixed metrics interpreted correctly', done => {
             time: 0.2,
             timestamp: 123243513,
         },
+        {
+            name: 'new_summary',
+            description: '.',
+            value: 0.2,
+            timestamp: 123243513,
+            type: 7,
+        },
+        {
+            name: 'new_histogram',
+            description: '.',
+            value: 0.2,
+            timestamp: 123243513,
+            type: 5,
+        },
+        {
+            name: 'new_gauge',
+            description: '.',
+            value: 0.2,
+            timestamp: 123243513,
+            type: 1,
+        },
+        {
+            name: 'new_counter',
+            description: '.',
+            value: 0.2,
+            timestamp: 123243513,
+            type: 2,
+        },
     ]);
 
     source.pipe(consumer);

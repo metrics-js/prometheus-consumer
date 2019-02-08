@@ -299,26 +299,6 @@ test('.override() sets a metric to be a histogram with specific buckets', done =
     });
 });
 
-test('.override() sets a metric to be `histogram` but received metric is not valid for histogram type', done => {
-    expect.hasAssertions();
-    const consumer = new PrometheusMetricsConsumer({ client: promClient });
-
-    const source = src([
-        {
-            name: 'bad_histogram',
-            description: '.',
-        },
-    ]);
-
-    consumer.on('error', err => {
-        expect(err.message).toMatchSnapshot();
-        done();
-    });
-
-    consumer.override('bad_histogram', { type: 'histogram' });
-    source.pipe(consumer);
-});
-
 test('.override() sets a counter with custom labels', done => {
     expect.hasAssertions();
     const consumer = new PrometheusMetricsConsumer({ client: promClient });

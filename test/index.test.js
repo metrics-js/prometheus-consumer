@@ -160,6 +160,8 @@ test('mixed metrics interpreted correctly', done => {
 
     consumer.on('finish', () => {
         // eslint-disable-next-line no-underscore-dangle
+        delete consumer.registry._metrics.new_summary.hashMap;
+        // eslint-disable-next-line no-underscore-dangle
         expect(consumer.registry._metrics).toMatchSnapshot();
         done();
     });

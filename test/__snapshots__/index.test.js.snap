@@ -901,40 +901,11 @@ Object {
     ],
   },
   "new_summary": Summary {
+    "ageBuckets": undefined,
     "aggregator": "sum",
-    "hashMap": Object {
-      "": Object {
-        "count": 1,
-        "labels": Object {},
-        "sum": 0.2,
-        "td": TDigest {
-          "CX": 1.1,
-          "K": 25,
-          "centroids": TreeBase {
-            "_comparator": [Function],
-            "_root": Node {
-              "data": Object {
-                "cumn": 1,
-                "mean": 0.2,
-                "mean_cumn": 0.5,
-                "n": 1,
-              },
-              "left": null,
-              "red": false,
-              "right": null,
-            },
-            "size": 1,
-          },
-          "delta": 0.01,
-          "discrete": false,
-          "last_cumulate": 1,
-          "n": 1,
-          "nreset": 1,
-        },
-      },
-    },
     "help": ".",
     "labelNames": Array [],
+    "maxAgeSeconds": undefined,
     "name": "new_summary",
     "percentiles": Array [
       0.01,

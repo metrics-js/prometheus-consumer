@@ -919,3 +919,25 @@ Object {
   },
 }
 `;
+
+exports[`new metrics with labels 1`] = `
+Counter {
+  "aggregator": "sum",
+  "hashMap": Object {
+    "label1:one,label2:two": Object {
+      "labels": Object {
+        "label1": "one",
+        "label2": "two",
+      },
+      "timestamp": undefined,
+      "value": 1,
+    },
+  },
+  "help": ".",
+  "labelNames": Array [
+    "label1",
+    "label2",
+  ],
+  "name": "my_new_counter_with_labels",
+}
+`;

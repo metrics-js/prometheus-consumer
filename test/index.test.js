@@ -237,6 +237,8 @@ test('metrics with labels', done => {
             method: 'GET',
             status: 200,
             meta: {
+                buckets: [],
+                quantiles: [],
                 label1: 'one',
                 label2: 'two',
             },

@@ -252,6 +252,35 @@ test('metrics with labels', done => {
     });
 });
 
+test('new metrics with labels', done => {
+    expect.hasAssertions();
+    const consumer = new PrometheusMetricsConsumer({ client: promClient });
+
+    const source = src([
+        {
+            name: 'my_new_counter_with_labels',
+            description: '.',
+            podlet: 'recommendations',
+            url: 'http://mylayout.com',
+            method: 'GET',
+            status: 200,
+            labels: [
+                { name: 'label1', value: 'one' },
+                { name: 'label2', value: 'two' },
+            ],
+        },
+    ]);
+
+    source.pipe(consumer);
+
+    consumer.on('finish', () => {
+        expect(
+            consumer.registry.getSingleMetric('my_new_counter_with_labels'),
+        ).toMatchSnapshot();
+        done();
+    });
+});
+
 test('invalid constructor options', () => {
     expect.hasAssertions();
     expect(

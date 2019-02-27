@@ -3,6 +3,7 @@
 const { Readable } = require('readable-stream');
 
 const promClient = require('prom-client');
+const Metric = require('@metrics/metric');
 const PrometheusMetricsConsumer = require('../lib');
 
 const src = arr =>
@@ -257,18 +258,16 @@ test('new metrics with labels', done => {
     const consumer = new PrometheusMetricsConsumer({ client: promClient });
 
     const source = src([
-        {
+        new Metric({
             name: 'my_new_counter_with_labels',
             description: '.',
-            podlet: 'recommendations',
-            url: 'http://mylayout.com',
-            method: 'GET',
-            status: 200,
             labels: [
                 { name: 'label1', value: 'one' },
                 { name: 'label2', value: 'two' },
             ],
-        },
+            value: 1,
+            type: 2,
+        }),
     ]);
 
     source.pipe(consumer);

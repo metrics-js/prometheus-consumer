@@ -6,6 +6,11 @@ The latest version of this document is always available in [releases][releases-u
 
 ## [Unreleased]
 
+## [2.2.0] - 2019-03-01
+
+-   Adds support for passing in a logger
+-   Guards against prom client errors and logs
+
 ## [2.1.3] - 2019-02-27
 
 -   deprecates the use of the meta metric property for labels
@@ -46,7 +51,8 @@ The latest version of this document is always available in [releases][releases-u
 -   .contentType() method added
 -   lint fixing
 
-[unreleased]: https://github.com/metrics-js/prometheus-consumer/compare/v2.1.3...HEAD
+[unreleased]: https://github.com/metrics-js/prometheus-consumer/compare/v2.2.0...HEAD
+[2.2.0]: https://github.com/metrics-js/prometheus-consumer/compare/v2.1.3...v2.2.0
 [2.1.3]: https://github.com/metrics-js/prometheus-consumer/compare/v2.1.2...v2.1.3
 [2.1.2]: https://github.com/metrics-js/prometheus-consumer/compare/v2.1.1...v2.1.2
 [2.1.1]: https://github.com/metrics-js/prometheus-consumer/compare/v2.1.0...v2.1.1

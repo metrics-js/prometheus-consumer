@@ -108,6 +108,7 @@ consumer.on('error', err => console.error(err));
 | [bucketStepStart](#bucketstepstart)   | Value to start bucket generation from. Each step increases from here by `bucketStepFactor` | `number` | 0.001   |
 | [bucketStepFactor](#bucketstepfactor) | Scaling factor for bucket creation. Must be > 1                                            | `number` | 1.15    |
 | [bucketStepCount](#bucketstepcount)   | Number of times `bucketStepFactor` should be applied to `bucketStepStart`                  | `number` | 45      |
+| logger                                | Log4j compatible logger instance or `console`. If not provided, module will not log        | `object` | null    |
 
 ##### client
 

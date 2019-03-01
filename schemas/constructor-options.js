@@ -4,7 +4,7 @@ const Joi = require('joi');
 
 module.exports = Joi.object()
     .keys({
-        logger: Joi.object(),
+        logger: Joi.any(),
         client: Joi.object()
             .keys({
                 Gauge: Joi.func(),

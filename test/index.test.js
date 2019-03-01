@@ -439,3 +439,49 @@ test('.metrics() method', done => {
     });
     source.pipe(consumer);
 });
+
+test('guard against bad metric data', done => {
+    expect.hasAssertions();
+    const mockLogger = {
+        trace: jest.fn(),
+        debug: jest.fn(),
+        info: jest.fn(),
+        warn: jest.fn(),
+        error: jest.fn(),
+        fatal: jest.fn(),
+    };
+    const consumer = new PrometheusMetricsConsumer({
+        logger: mockLogger,
+        client: promClient,
+    });
+
+    const source = src([
+        {},
+        '',
+        { name: 'test' },
+        new Metric({
+            name: 'test3',
+            description: '.',
+            labels: [{ name: 'label3', value: 'one' }],
+            value: 1,
+            type: 2,
+        }),
+        new Metric({
+            name: 'test3',
+            description: '.',
+            labels: [
+                { name: 'label3', value: 'one' },
+                { name: 'label4', value: 'two' },
+            ],
+            value: 1,
+            type: 2,
+        }),
+    ]);
+
+    consumer.on('finish', () => {
+        expect(mockLogger.error).toHaveBeenCalledTimes(4);
+        done();
+    });
+
+    source.pipe(consumer);
+});

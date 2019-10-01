@@ -29,8 +29,8 @@
     "author": "Richard Walker <digitalsadhu@gmail.com>",
     "dependencies": {
         "abslog": "^2.4.0",
-        "joi": "^14.0.0",
-        "readable-stream": "^3.1.1"
+        "joi": "^14.3.1",
+        "readable-stream": "^3.4.0"
     },
     "jest": {
         "testEnvironment": "node"

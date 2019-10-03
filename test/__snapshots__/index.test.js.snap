@@ -903,6 +903,7 @@ Object {
   "new_summary": Summary {
     "ageBuckets": undefined,
     "aggregator": "sum",
+    "compressCount": 1000,
     "help": ".",
     "labelNames": Array [],
     "maxAgeSeconds": undefined,

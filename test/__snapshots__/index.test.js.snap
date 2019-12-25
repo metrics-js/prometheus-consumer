@@ -57,13 +57,7 @@ custom_label_histogram_count 1
 
 exports[`.override() invalid name 1`] = `"Invalid \`name\` given to prometheusMetricsConsumer.override. \\"name\\" must only contain alpha-numeric and underscore characters"`;
 
-exports[`.override() invalid type 1`] = `
-"Invalid \`config\` object given to prometheusMetricsConsumer.override. {
-  \\"type\\" [31m[1][0m: \\"not allowed type\\"
-}
-[31m
-[1] \\"type\\" must be one of [counter, histogram, gauge, summary][0m"
-`;
+exports[`.override() invalid type 1`] = `"Invalid \`config\` object given to prometheusMetricsConsumer.override. \\"type\\" must be one of [counter, histogram, gauge, summary]"`;
 
 exports[`.override() missing name 1`] = `"Invalid \`name\` given to prometheusMetricsConsumer.override. \\"name\\" is required"`;
 

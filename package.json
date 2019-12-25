@@ -9,7 +9,9 @@
     "main": "lib/index.js",
     "scripts": {
         "test": "jest .",
-        "precommit": "lint-staged"
+        "precommit": "lint-staged",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix"
     },
     "lint-staged": {
         "*.js": [

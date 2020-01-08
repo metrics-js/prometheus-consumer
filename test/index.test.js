@@ -285,8 +285,7 @@ test('new metrics with labels', done => {
 test('invalid constructor options', () => {
     expect.hasAssertions();
     expect(
-        () =>
-            new PrometheusMetricsConsumer({ client: promClient, fake: 'key' }),
+        () => new PrometheusMetricsConsumer({ client: {}, fake: 'key' }),
     ).toThrowError();
 });
 

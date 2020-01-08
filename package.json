@@ -31,7 +31,6 @@
     "author": "Richard Walker <digitalsadhu@gmail.com>",
     "dependencies": {
         "abslog": "^2.4.0",
-        "@hapi/joi": "^16.1.8",
         "readable-stream": "^3.4.0"
     },
     "jest": {

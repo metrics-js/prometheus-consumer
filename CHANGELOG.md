@@ -6,6 +6,10 @@ The latest version of this document is always available in [releases][releases-u
 
 ## [Unreleased]
 
+## [3.0.0] - 2020-01-09
+
+-   Removed the usage of Joi.
+
 ## [2.2.0] - 2019-03-01
 
 -   Adds support for passing in a logger
@@ -51,7 +55,8 @@ The latest version of this document is always available in [releases][releases-u
 -   .contentType() method added
 -   lint fixing
 
-[unreleased]: https://github.com/metrics-js/prometheus-consumer/compare/v2.2.0...HEAD
+[unreleased]: https://github.com/metrics-js/prometheus-consumer/compare/v3.0.0...HEAD
+[3.0.0]: https://github.com/metrics-js/prometheus-consumer/compare/v2.2.0...v3.0.0
 [2.2.0]: https://github.com/metrics-js/prometheus-consumer/compare/v2.1.3...v2.2.0
 [2.1.3]: https://github.com/metrics-js/prometheus-consumer/compare/v2.1.2...v2.1.3
 [2.1.2]: https://github.com/metrics-js/prometheus-consumer/compare/v2.1.1...v2.1.2

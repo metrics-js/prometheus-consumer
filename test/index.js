@@ -1,9 +1,10 @@
 'use strict';
 
 const { Readable } = require('readable-stream');
-
 const promClient = require('prom-client');
+const { test } = require('tap');
 const Metric = require('@metrics/metric');
+
 const PrometheusMetricsConsumer = require('../lib');
 
 const src = arr =>
@@ -17,14 +18,15 @@ const src = arr =>
         },
     });
 
-test('toString returns correct object name', () => {
-    expect(
-        new PrometheusMetricsConsumer({ client: promClient }).toString(),
-    ).toBe('[object PrometheusMetricsConsumer]');
+test('.toString() returns correct object name', t => {
+    const str = new PrometheusMetricsConsumer({
+        client: promClient,
+    }).toString();
+    t.equal(str, '[object PrometheusMetricsConsumer]');
+    t.end();
 });
 
-test('metrics interpreted as a counter', done => {
-    expect.hasAssertions();
+test('metrics interpreted as a counter', t => {
     const consumer = new PrometheusMetricsConsumer({ client: promClient });
 
     const source = src([
@@ -36,15 +38,13 @@ test('metrics interpreted as a counter', done => {
     source.pipe(consumer);
 
     consumer.on('finish', () => {
-        expect(
-            consumer.registry.getSingleMetric('my_counter'),
-        ).toMatchSnapshot();
-        done();
+        const result = consumer.registry.getSingleMetric('my_counter');
+        t.matchSnapshot(result);
+        t.end();
     });
 });
 
-test('metrics interpreted as a histogram', done => {
-    expect.hasAssertions();
+test('metrics interpreted as a histogram', t => {
     const consumer = new PrometheusMetricsConsumer({ client: promClient });
 
     const source = src([
@@ -59,15 +59,13 @@ test('metrics interpreted as a histogram', done => {
     source.pipe(consumer);
 
     consumer.on('finish', () => {
-        expect(
-            consumer.registry.getSingleMetric('my_histogram'),
-        ).toMatchSnapshot();
-        done();
+        const result = consumer.registry.getSingleMetric('my_histogram');
+        t.matchSnapshot(result);
+        t.end();
     });
 });
 
-test('gauge metrics interpreted as counters', done => {
-    expect.hasAssertions();
+test('gauge metrics interpreted as counters', t => {
     const consumer = new PrometheusMetricsConsumer({ client: promClient });
 
     const source = src([
@@ -78,13 +76,13 @@ test('gauge metrics interpreted as counters', done => {
     source.pipe(consumer);
 
     consumer.on('finish', () => {
-        expect(consumer.registry.getSingleMetric('my_gauge')).toMatchSnapshot();
-        done();
+        const result = consumer.registry.getSingleMetric('my_gauge');
+        t.matchSnapshot(result);
+        t.end();
     });
 });
 
-test('mixed metrics interpreted correctly', done => {
-    expect.hasAssertions();
+test('mixed metrics interpreted correctly', t => {
     const consumer = new PrometheusMetricsConsumer({ client: promClient });
 
     const source = src([
@@ -163,13 +161,12 @@ test('mixed metrics interpreted correctly', done => {
         // eslint-disable-next-line no-underscore-dangle
         delete consumer.registry._metrics.new_summary.hashMap;
         // eslint-disable-next-line no-underscore-dangle
-        expect(consumer.registry._metrics).toMatchSnapshot();
-        done();
+        t.matchSnapshot(consumer.registry._metrics);
+        t.end();
     });
 });
 
-test('time metrics overridden to be summaries', done => {
-    expect.hasAssertions();
+test('time metrics overridden to be summaries', t => {
     const consumer = new PrometheusMetricsConsumer({ client: promClient });
 
     consumer.override('time_series', { type: 'summary' });
@@ -216,16 +213,16 @@ test('time metrics overridden to be summaries', done => {
     source.pipe(consumer);
 
     consumer.on('finish', () => {
-        // eslint-disable-next-line no-underscore-dangle
-        expect(consumer.registry._metrics.time_series).toBeInstanceOf(
-            promClient.Summary,
+        t.true(
+            // eslint-disable-next-line no-underscore-dangle
+            consumer.registry._metrics.time_series instanceof
+                promClient.Summary,
         );
-        done();
+        t.end();
     });
 });
 
-test('metrics with labels', done => {
-    expect.hasAssertions();
+test('metrics with labels', t => {
     const consumer = new PrometheusMetricsConsumer({ client: promClient });
 
     const source = src([
@@ -248,15 +245,15 @@ test('metrics with labels', done => {
     source.pipe(consumer);
 
     consumer.on('finish', () => {
-        expect(
-            consumer.registry.getSingleMetric('my_counter_with_labels'),
-        ).toMatchSnapshot();
-        done();
+        const result = consumer.registry.getSingleMetric(
+            'my_counter_with_labels',
+        );
+        t.matchSnapshot(result);
+        t.end();
     });
 });
 
-test('new metrics with labels', done => {
-    expect.hasAssertions();
+test('new metrics with labels', t => {
     const consumer = new PrometheusMetricsConsumer({ client: promClient });
 
     const source = src([
@@ -275,46 +272,54 @@ test('new metrics with labels', done => {
     source.pipe(consumer);
 
     consumer.on('finish', () => {
-        expect(
-            consumer.registry.getSingleMetric('my_new_counter_with_labels'),
-        ).toMatchSnapshot();
-        done();
+        const result = consumer.registry.getSingleMetric(
+            'my_new_counter_with_labels',
+        );
+        t.matchSnapshot(result);
+        t.end();
     });
 });
 
-test('invalid constructor options', () => {
-    expect.hasAssertions();
-    expect(
-        () => new PrometheusMetricsConsumer({ client: {}, fake: 'key' }),
-    ).toThrowError();
+test('invalid constructor options', t => {
+    t.plan(1);
+    t.throws(() => {
+        // eslint-disable-next-line no-unused-vars
+        const result = new PrometheusMetricsConsumer({
+            client: {},
+            fake: 'key',
+        });
+    }, /Provided value to argument "client" is not a Prometheus client/);
+    t.end();
 });
 
-test('.override() missing name', () => {
-    expect.hasAssertions();
+test('.override() missing name', t => {
+    t.plan(1);
     const consumer = new PrometheusMetricsConsumer({ client: promClient });
-    expect(() => {
+    t.throws(() => {
         consumer.override();
-    }).toThrowErrorMatchingSnapshot();
+    }, /Invalid "name" given to prometheusMetricsConsumer.override. "name" must only contain alpha-numeric and underscore characters/);
+    t.end();
 });
 
-test('.override() invalid name', () => {
-    expect.hasAssertions();
+test('.override() invalid name', t => {
+    t.plan(1);
     const consumer = new PrometheusMetricsConsumer({ client: promClient });
-    expect(() => {
+    t.throws(() => {
         consumer.override('my name is bad');
-    }).toThrowErrorMatchingSnapshot();
+    }, /Invalid "name" given to prometheusMetricsConsumer.override. "name" must only contain alpha-numeric and underscore characters/);
+    t.end();
 });
 
-test('.override() invalid type', () => {
-    expect.hasAssertions();
+test('.override() invalid type', t => {
+    t.plan(1);
     const consumer = new PrometheusMetricsConsumer({ client: promClient });
-    expect(() => {
+    t.throws(() => {
         consumer.override('valid_name', { type: 'not allowed type' });
-    }).toThrowErrorMatchingSnapshot();
+    }, /Invalid "config" object given to prometheusMetricsConsumer.override. "type" must be one of "counter", "histogram", "gauge", "summary"/);
+    t.end();
 });
 
-test('.override() sets a metric to be a counter', done => {
-    expect.hasAssertions();
+test('.override() sets a metric to be a counter', t => {
     const consumer = new PrometheusMetricsConsumer({ client: promClient });
     const source = src([{ name: 'valid_name', description: '.', time: 12345 }]);
 
@@ -322,15 +327,13 @@ test('.override() sets a metric to be a counter', done => {
     source.pipe(consumer);
 
     consumer.on('finish', () => {
-        expect(
-            consumer.registry.getSingleMetric('valid_name'),
-        ).toMatchSnapshot();
-        done();
+        const result = consumer.registry.getSingleMetric('valid_name');
+        t.matchSnapshot(result);
+        t.end();
     });
 });
 
-test('.override() sets a metric to be a histogram with specific buckets', done => {
-    expect.hasAssertions();
+test('.override() sets a metric to be a histogram with specific buckets', t => {
     const consumer = new PrometheusMetricsConsumer({ client: promClient });
     const source = src([
         {
@@ -351,15 +354,15 @@ test('.override() sets a metric to be a histogram with specific buckets', done =
     source.pipe(consumer);
 
     consumer.on('finish', () => {
-        expect(
-            consumer.registry.getSingleMetric('overridden_histogram'),
-        ).toMatchSnapshot();
-        done();
+        const result = consumer.registry.getSingleMetric(
+            'overridden_histogram',
+        );
+        t.matchSnapshot(result);
+        t.end();
     });
 });
 
-test('.override() sets a counter with custom labels', done => {
-    expect.hasAssertions();
+test('.override() sets a counter with custom labels', t => {
     const consumer = new PrometheusMetricsConsumer({ client: promClient });
 
     const source = src([
@@ -372,10 +375,11 @@ test('.override() sets a counter with custom labels', done => {
     ]);
 
     consumer.on('finish', () => {
-        expect(
-            consumer.registry.getSingleMetric('custom_label_counter'),
-        ).toMatchSnapshot();
-        done();
+        const result = consumer.registry.getSingleMetric(
+            'custom_label_counter',
+        );
+        t.matchSnapshot(result);
+        t.end();
     });
 
     consumer.override('custom_label_counter', {
@@ -384,8 +388,7 @@ test('.override() sets a counter with custom labels', done => {
     source.pipe(consumer);
 });
 
-test('.override() sets a histogram with custom labels', done => {
-    expect.hasAssertions();
+test('.override() sets a histogram with custom labels', t => {
     const consumer = new PrometheusMetricsConsumer({ client: promClient });
 
     const source = src([
@@ -399,10 +402,11 @@ test('.override() sets a histogram with custom labels', done => {
     ]);
 
     consumer.on('finish', () => {
-        expect(
-            consumer.registry.getSingleMetric('custom_label_histogram'),
-        ).toMatchSnapshot();
-        done();
+        const result = consumer.registry.getSingleMetric(
+            'custom_label_histogram',
+        );
+        t.matchSnapshot(result);
+        t.end();
     });
 
     consumer.override('custom_label_histogram', {
@@ -411,16 +415,14 @@ test('.override() sets a histogram with custom labels', done => {
     source.pipe(consumer);
 });
 
-test('.contentType() method', () => {
-    expect.hasAssertions();
+test('.contentType() method', t => {
     const consumer = new PrometheusMetricsConsumer({ client: promClient });
-    expect(consumer.contentType()).toBe(
-        'text/plain; version=0.0.4; charset=utf-8',
-    );
+    const result = consumer.contentType();
+    t.equal(result, 'text/plain; version=0.0.4; charset=utf-8');
+    t.end();
 });
 
-test('.metrics() method', done => {
-    expect.hasAssertions();
+test('.metrics() method', t => {
     const consumer = new PrometheusMetricsConsumer({ client: promClient });
     const source = src([
         {
@@ -433,21 +435,27 @@ test('.metrics() method', done => {
     ]);
 
     consumer.on('finish', () => {
-        expect(consumer.metrics()).toMatchSnapshot();
-        done();
+        const result = consumer.metrics();
+        t.matchSnapshot(result);
+        t.end();
     });
     source.pipe(consumer);
 });
 
-test('guard against bad metric data', done => {
-    expect.hasAssertions();
+test('guard against bad metric data', t => {
+    let errCount = 0;
+    const log = () => {};
+    const err = () => {
+        errCount += 1;
+    };
+
     const mockLogger = {
-        trace: jest.fn(),
-        debug: jest.fn(),
-        info: jest.fn(),
-        warn: jest.fn(),
-        error: jest.fn(),
-        fatal: jest.fn(),
+        trace: log,
+        debug: log,
+        info: log,
+        warn: log,
+        error: err,
+        fatal: log,
     };
     const consumer = new PrometheusMetricsConsumer({
         logger: mockLogger,
@@ -478,8 +486,8 @@ test('guard against bad metric data', done => {
     ]);
 
     consumer.on('finish', () => {
-        expect(mockLogger.error).toHaveBeenCalledTimes(4);
-        done();
+        t.equal(errCount, 4);
+        t.end();
     });
 
     source.pipe(consumer);

@@ -1,67 +1,70 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+/* IMPORTANT
+ * This snapshot file is auto-generated, but designed for humans.
+ * It should be checked into source control and tracked carefully.
+ * Re-generate by setting TAP_SNAPSHOT=1 and running tests.
+ * Make sure to inspect the output below.  Do not ignore changes!
+ */
 
-exports[`.metrics() method 1`] = `
-"# HELP custom_label_histogram .
+'use strict';
+
+exports[`test/index.js TAP .metrics() method > must match snapshot 1`] = `
+# HELP custom_label_histogram .
 # TYPE custom_label_histogram histogram
-custom_label_histogram_bucket{le=\\"0.001\\"} 0
-custom_label_histogram_bucket{le=\\"0.0012\\"} 0
-custom_label_histogram_bucket{le=\\"0.0013\\"} 0
-custom_label_histogram_bucket{le=\\"0.0015\\"} 0
-custom_label_histogram_bucket{le=\\"0.0017\\"} 0
-custom_label_histogram_bucket{le=\\"0.002\\"} 0
-custom_label_histogram_bucket{le=\\"0.0023\\"} 0
-custom_label_histogram_bucket{le=\\"0.0027\\"} 0
-custom_label_histogram_bucket{le=\\"0.0031\\"} 0
-custom_label_histogram_bucket{le=\\"0.0035\\"} 0
-custom_label_histogram_bucket{le=\\"0.004\\"} 0
-custom_label_histogram_bucket{le=\\"0.0047\\"} 0
-custom_label_histogram_bucket{le=\\"0.0054\\"} 0
-custom_label_histogram_bucket{le=\\"0.0062\\"} 0
-custom_label_histogram_bucket{le=\\"0.0071\\"} 0
-custom_label_histogram_bucket{le=\\"0.0081\\"} 0
-custom_label_histogram_bucket{le=\\"0.0094\\"} 0
-custom_label_histogram_bucket{le=\\"0.0108\\"} 0
-custom_label_histogram_bucket{le=\\"0.0124\\"} 0
-custom_label_histogram_bucket{le=\\"0.0142\\"} 0
-custom_label_histogram_bucket{le=\\"0.0164\\"} 0
-custom_label_histogram_bucket{le=\\"0.0188\\"} 0
-custom_label_histogram_bucket{le=\\"0.0216\\"} 0
-custom_label_histogram_bucket{le=\\"0.0249\\"} 0
-custom_label_histogram_bucket{le=\\"0.0286\\"} 0
-custom_label_histogram_bucket{le=\\"0.0329\\"} 0
-custom_label_histogram_bucket{le=\\"0.0379\\"} 0
-custom_label_histogram_bucket{le=\\"0.0435\\"} 0
-custom_label_histogram_bucket{le=\\"0.0501\\"} 0
-custom_label_histogram_bucket{le=\\"0.0576\\"} 0
-custom_label_histogram_bucket{le=\\"0.0662\\"} 0
-custom_label_histogram_bucket{le=\\"0.0761\\"} 0
-custom_label_histogram_bucket{le=\\"0.0876\\"} 0
-custom_label_histogram_bucket{le=\\"0.1007\\"} 0
-custom_label_histogram_bucket{le=\\"0.1158\\"} 0
-custom_label_histogram_bucket{le=\\"0.1332\\"} 0
-custom_label_histogram_bucket{le=\\"0.1532\\"} 0
-custom_label_histogram_bucket{le=\\"0.1761\\"} 0
-custom_label_histogram_bucket{le=\\"0.2025\\"} 0
-custom_label_histogram_bucket{le=\\"0.2329\\"} 0
-custom_label_histogram_bucket{le=\\"0.2679\\"} 0
-custom_label_histogram_bucket{le=\\"0.308\\"} 0
-custom_label_histogram_bucket{le=\\"0.3542\\"} 0
-custom_label_histogram_bucket{le=\\"0.4074\\"} 0
-custom_label_histogram_bucket{le=\\"0.4685\\"} 0
-custom_label_histogram_bucket{le=\\"Infinity\\"} 1
-custom_label_histogram_bucket{le=\\"+Inf\\"} 1
+custom_label_histogram_bucket{le="0.001"} 0
+custom_label_histogram_bucket{le="0.0012"} 0
+custom_label_histogram_bucket{le="0.0013"} 0
+custom_label_histogram_bucket{le="0.0015"} 0
+custom_label_histogram_bucket{le="0.0017"} 0
+custom_label_histogram_bucket{le="0.002"} 0
+custom_label_histogram_bucket{le="0.0023"} 0
+custom_label_histogram_bucket{le="0.0027"} 0
+custom_label_histogram_bucket{le="0.0031"} 0
+custom_label_histogram_bucket{le="0.0035"} 0
+custom_label_histogram_bucket{le="0.004"} 0
+custom_label_histogram_bucket{le="0.0047"} 0
+custom_label_histogram_bucket{le="0.0054"} 0
+custom_label_histogram_bucket{le="0.0062"} 0
+custom_label_histogram_bucket{le="0.0071"} 0
+custom_label_histogram_bucket{le="0.0081"} 0
+custom_label_histogram_bucket{le="0.0094"} 0
+custom_label_histogram_bucket{le="0.0108"} 0
+custom_label_histogram_bucket{le="0.0124"} 0
+custom_label_histogram_bucket{le="0.0142"} 0
+custom_label_histogram_bucket{le="0.0164"} 0
+custom_label_histogram_bucket{le="0.0188"} 0
+custom_label_histogram_bucket{le="0.0216"} 0
+custom_label_histogram_bucket{le="0.0249"} 0
+custom_label_histogram_bucket{le="0.0286"} 0
+custom_label_histogram_bucket{le="0.0329"} 0
+custom_label_histogram_bucket{le="0.0379"} 0
+custom_label_histogram_bucket{le="0.0435"} 0
+custom_label_histogram_bucket{le="0.0501"} 0
+custom_label_histogram_bucket{le="0.0576"} 0
+custom_label_histogram_bucket{le="0.0662"} 0
+custom_label_histogram_bucket{le="0.0761"} 0
+custom_label_histogram_bucket{le="0.0876"} 0
+custom_label_histogram_bucket{le="0.1007"} 0
+custom_label_histogram_bucket{le="0.1158"} 0
+custom_label_histogram_bucket{le="0.1332"} 0
+custom_label_histogram_bucket{le="0.1532"} 0
+custom_label_histogram_bucket{le="0.1761"} 0
+custom_label_histogram_bucket{le="0.2025"} 0
+custom_label_histogram_bucket{le="0.2329"} 0
+custom_label_histogram_bucket{le="0.2679"} 0
+custom_label_histogram_bucket{le="0.308"} 0
+custom_label_histogram_bucket{le="0.3542"} 0
+custom_label_histogram_bucket{le="0.4074"} 0
+custom_label_histogram_bucket{le="0.4685"} 0
+custom_label_histogram_bucket{le="Infinity"} 1
+custom_label_histogram_bucket{le="+Inf"} 1
 custom_label_histogram_sum 12324
 custom_label_histogram_count 1
-"
+
 `;
 
-exports[`.override() invalid name 1`] = `"Invalid \`name\` given to prometheusMetricsConsumer.override. \\"name\\" must only contain alpha-numeric and underscore characters"`;
-
-exports[`.override() invalid type 1`] = `"Invalid \`config\` object given to prometheusMetricsConsumer.override. \\"type\\" must be one of [counter, histogram, gauge, summary]"`;
-
-exports[`.override() missing name 1`] = `"Invalid \`name\` given to prometheusMetricsConsumer.override. \\"name\\" must only contain alpha-numeric and underscore characters"`;
-
-exports[`.override() sets a counter with custom labels 1`] = `
+exports[
+    `test/index.js TAP .override() sets a counter with custom labels > must match snapshot 1`
+] = `
 Counter {
   "aggregator": "sum",
   "hashMap": Object {
@@ -77,7 +80,9 @@ Counter {
 }
 `;
 
-exports[`.override() sets a histogram with custom labels 1`] = `
+exports[
+    `test/index.js TAP .override() sets a histogram with custom labels > must match snapshot 1`
+] = `
 Histogram {
   "aggregator": "sum",
   "bucketValues": Object {
@@ -234,12 +239,14 @@ Histogram {
     0.3542,
     0.4074,
     0.4685,
-    Infinity,
+    null,
   ],
 }
 `;
 
-exports[`.override() sets a metric to be a counter 1`] = `
+exports[
+    `test/index.js TAP .override() sets a metric to be a counter > must match snapshot 1`
+] = `
 Counter {
   "aggregator": "sum",
   "hashMap": Object {
@@ -255,7 +262,9 @@ Counter {
 }
 `;
 
-exports[`.override() sets a metric to be a histogram with specific buckets 1`] = `
+exports[
+    `test/index.js TAP .override() sets a metric to be a histogram with specific buckets > must match snapshot 1`
+] = `
 Histogram {
   "aggregator": "sum",
   "bucketValues": Object {
@@ -301,12 +310,14 @@ Histogram {
     32,
     64,
     128,
-    Infinity,
+    null,
   ],
 }
 `;
 
-exports[`gauge metrics interpreted as counters 1`] = `
+exports[
+    `test/index.js TAP gauge metrics interpreted as counters > must match snapshot 1`
+] = `
 Gauge {
   "aggregator": "sum",
   "hashMap": Object {
@@ -322,7 +333,9 @@ Gauge {
 }
 `;
 
-exports[`metrics interpreted as a counter 1`] = `
+exports[
+    `test/index.js TAP metrics interpreted as a counter > must match snapshot 1`
+] = `
 Counter {
   "aggregator": "sum",
   "hashMap": Object {
@@ -338,7 +351,9 @@ Counter {
 }
 `;
 
-exports[`metrics interpreted as a histogram 1`] = `
+exports[
+    `test/index.js TAP metrics interpreted as a histogram > must match snapshot 1`
+] = `
 Histogram {
   "aggregator": "sum",
   "bucketValues": Object {
@@ -495,12 +510,12 @@ Histogram {
     0.3542,
     0.4074,
     0.4685,
-    Infinity,
+    null,
   ],
 }
 `;
 
-exports[`metrics with labels 1`] = `
+exports[`test/index.js TAP metrics with labels > must match snapshot 1`] = `
 Counter {
   "aggregator": "sum",
   "hashMap": Object {
@@ -522,7 +537,9 @@ Counter {
 }
 `;
 
-exports[`mixed metrics interpreted correctly 1`] = `
+exports[
+    `test/index.js TAP mixed metrics interpreted correctly > must match snapshot 1`
+] = `
 Object {
   "mixed_counter": Counter {
     "aggregator": "sum",
@@ -706,7 +723,7 @@ Object {
       0.3542,
       0.4074,
       0.4685,
-      Infinity,
+      null,
     ],
   },
   "new_counter": Counter {
@@ -891,7 +908,7 @@ Object {
       0.3542,
       0.4074,
       0.4685,
-      Infinity,
+      null,
     ],
   },
   "new_summary": Summary {
@@ -915,7 +932,7 @@ Object {
 }
 `;
 
-exports[`new metrics with labels 1`] = `
+exports[`test/index.js TAP new metrics with labels > must match snapshot 1`] = `
 Counter {
   "aggregator": "sum",
   "hashMap": Object {

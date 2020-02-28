@@ -4,9 +4,7 @@
  * Re-generate by setting TAP_SNAPSHOT=1 and running tests.
  * Make sure to inspect the output below.  Do not ignore changes!
  */
-
-'use strict';
-
+'use strict'
 exports[`test/index.js TAP .metrics() method > must match snapshot 1`] = `
 # HELP custom_label_histogram .
 # TYPE custom_label_histogram histogram
@@ -60,17 +58,14 @@ custom_label_histogram_bucket{le="+Inf"} 1
 custom_label_histogram_sum 12324
 custom_label_histogram_count 1
 
-`;
+`
 
-exports[
-    `test/index.js TAP .override() sets a counter with custom labels > must match snapshot 1`
-] = `
+exports[`test/index.js TAP .override() sets a counter with custom labels > must match snapshot 1`] = `
 Counter {
   "aggregator": "sum",
   "hashMap": Object {
     "": Object {
       "labels": Object {},
-      "timestamp": undefined,
       "value": 1,
     },
   },
@@ -78,11 +73,9 @@ Counter {
   "labelNames": Array [],
   "name": "custom_label_counter",
 }
-`;
+`
 
-exports[
-    `test/index.js TAP .override() sets a histogram with custom labels > must match snapshot 1`
-] = `
+exports[`test/index.js TAP .override() sets a histogram with custom labels > must match snapshot 1`] = `
 Histogram {
   "aggregator": "sum",
   "bucketValues": Object {
@@ -242,17 +235,14 @@ Histogram {
     null,
   ],
 }
-`;
+`
 
-exports[
-    `test/index.js TAP .override() sets a metric to be a counter > must match snapshot 1`
-] = `
+exports[`test/index.js TAP .override() sets a metric to be a counter > must match snapshot 1`] = `
 Counter {
   "aggregator": "sum",
   "hashMap": Object {
     "": Object {
       "labels": Object {},
-      "timestamp": undefined,
       "value": 1,
     },
   },
@@ -260,11 +250,9 @@ Counter {
   "labelNames": Array [],
   "name": "valid_name",
 }
-`;
+`
 
-exports[
-    `test/index.js TAP .override() sets a metric to be a histogram with specific buckets > must match snapshot 1`
-] = `
+exports[`test/index.js TAP .override() sets a metric to be a histogram with specific buckets > must match snapshot 1`] = `
 Histogram {
   "aggregator": "sum",
   "bucketValues": Object {
@@ -313,17 +301,14 @@ Histogram {
     null,
   ],
 }
-`;
+`
 
-exports[
-    `test/index.js TAP gauge metrics interpreted as counters > must match snapshot 1`
-] = `
+exports[`test/index.js TAP gauge metrics interpreted as counters > must match snapshot 1`] = `
 Gauge {
   "aggregator": "sum",
   "hashMap": Object {
     "": Object {
       "labels": Object {},
-      "timestamp": undefined,
       "value": 8,
     },
   },
@@ -331,17 +316,14 @@ Gauge {
   "labelNames": Array [],
   "name": "my_gauge",
 }
-`;
+`
 
-exports[
-    `test/index.js TAP metrics interpreted as a counter > must match snapshot 1`
-] = `
+exports[`test/index.js TAP metrics interpreted as a counter > must match snapshot 1`] = `
 Counter {
   "aggregator": "sum",
   "hashMap": Object {
     "": Object {
       "labels": Object {},
-      "timestamp": undefined,
       "value": 3,
     },
   },
@@ -349,11 +331,9 @@ Counter {
   "labelNames": Array [],
   "name": "my_counter",
 }
-`;
+`
 
-exports[
-    `test/index.js TAP metrics interpreted as a histogram > must match snapshot 1`
-] = `
+exports[`test/index.js TAP metrics interpreted as a histogram > must match snapshot 1`] = `
 Histogram {
   "aggregator": "sum",
   "bucketValues": Object {
@@ -513,7 +493,7 @@ Histogram {
     null,
   ],
 }
-`;
+`
 
 exports[`test/index.js TAP metrics with labels > must match snapshot 1`] = `
 Counter {
@@ -524,7 +504,6 @@ Counter {
         "label1": "one",
         "label2": "two",
       },
-      "timestamp": undefined,
       "value": 1,
     },
   },
@@ -535,18 +514,15 @@ Counter {
   ],
   "name": "my_counter_with_labels",
 }
-`;
+`
 
-exports[
-    `test/index.js TAP mixed metrics interpreted correctly > must match snapshot 1`
-] = `
+exports[`test/index.js TAP mixed metrics interpreted correctly > must match snapshot 1`] = `
 Object {
   "mixed_counter": Counter {
     "aggregator": "sum",
     "hashMap": Object {
       "": Object {
         "labels": Object {},
-        "timestamp": undefined,
         "value": 3,
       },
     },
@@ -559,7 +535,6 @@ Object {
     "hashMap": Object {
       "": Object {
         "labels": Object {},
-        "timestamp": undefined,
         "value": 10,
       },
     },
@@ -731,7 +706,6 @@ Object {
     "hashMap": Object {
       "": Object {
         "labels": Object {},
-        "timestamp": undefined,
         "value": 0.2,
       },
     },
@@ -744,7 +718,6 @@ Object {
     "hashMap": Object {
       "": Object {
         "labels": Object {},
-        "timestamp": undefined,
         "value": 0.2,
       },
     },
@@ -930,7 +903,7 @@ Object {
     ],
   },
 }
-`;
+`
 
 exports[`test/index.js TAP new metrics with labels > must match snapshot 1`] = `
 Counter {
@@ -941,7 +914,6 @@ Counter {
         "label1": "one",
         "label2": "two",
       },
-      "timestamp": undefined,
       "value": 1,
     },
   },
@@ -952,4 +924,4 @@ Counter {
   ],
   "name": "my_new_counter_with_labels",
 }
-`;
+`

@@ -1,10 +1,10 @@
-# Prometheus metrics consumer
+# @metrics/prometheus-consumer
+
+A prometheus based streaming consumer for metric streams.
 
 [![Dependencies](https://img.shields.io/david/metrics-js/prometheus-consumer.svg)](https://david-dm.org/metrics-js/prometheus-consumer)
 [![GitHub Actions status](https://github.com/metrics-js/prometheus-consumer/workflows/Run%20Lint%20and%20Tests/badge.svg)](https://github.com/metrics-js/prometheus-consumer/actions?query=workflow%3A%22Run+Lint+and+Tests%22)
 [![Known Vulnerabilities](https://snyk.io/test/github/metrics-js/prometheus-consumer/badge.svg?targetFile=package.json)](https://snyk.io/test/github/metrics-js/prometheus-consumer?targetFile=package.json)
-
-A prometheus based streaming consumer for metric streams.
 
 ## How it works
 

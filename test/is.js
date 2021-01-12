@@ -33,7 +33,7 @@ test('.validFunction()', (t) => {
         'should return false when the arguments is an number',
     );
     t.true(
-        is.validFunction(function foo() {}),
+        is.validFunction(() => {}),
         'should return true when the arguments is an function',
     );
     t.true(

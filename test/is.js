@@ -7,7 +7,7 @@ const is = require('../lib/is');
  * .validFunction()
  */
 
-test('.validFunction()', t => {
+test('.validFunction()', (t) => {
     t.false(
         is.validFunction(),
         'should return false when no arguments is given',
@@ -51,7 +51,7 @@ test('.validFunction()', t => {
  * .validName()
  */
 
-test('.validName()', t => {
+test('.validName()', (t) => {
     t.true(
         is.validName('abc_def_G_01'),
         'should return true when the argument has chars in the specter of [a-zA-Z_][a-zA-Z0-9_]*',
@@ -71,7 +71,7 @@ test('.validName()', t => {
  * .validType()
  */
 
-test('.validType()', t => {
+test('.validType()', (t) => {
     t.true(
         is.validType('histogram'),
         'should return true when argument is "histogram"',
@@ -99,7 +99,7 @@ test('.validType()', t => {
  * .validPromClient()
  */
 
-test('is.validPromClient()', t => {
+test('is.validPromClient()', (t) => {
     const fn = () => {};
     t.true(
         is.validPromClient({
@@ -126,7 +126,7 @@ test('is.validPromClient()', t => {
  * .validBucketStepFactor()
  */
 
-test('.validBucketStepFactor()', t => {
+test('.validBucketStepFactor()', (t) => {
     t.true(
         is.validBucketStepFactor(4),
         'should return true when argument is a number',
@@ -150,7 +150,7 @@ test('.validBucketStepFactor()', t => {
  * .validBucketStepCount()
  */
 
-test('.validBucketStepCount()', t => {
+test('.validBucketStepCount()', (t) => {
     t.true(
         is.validBucketStepCount(4),
         'should return true when argument is a number',
@@ -174,7 +174,7 @@ test('.validBucketStepCount()', t => {
  * .validBucketStepStart()
  */
 
-test('.validBucketStepStart()', t => {
+test('.validBucketStepStart()', (t) => {
     t.true(
         is.validBucketStepStart(4),
         'should return true when argument is a number',

@@ -434,8 +434,8 @@ test('.metrics() method', (t) => {
         },
     ]);
 
-    consumer.on('finish', () => {
-        const result = consumer.metrics();
+    consumer.on('finish', async () => {
+        const result = await consumer.metrics();
         t.matchSnapshot(result);
         t.end();
     });

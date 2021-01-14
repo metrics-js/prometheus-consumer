@@ -61,7 +61,7 @@ custom_label_histogram_count 1
 `
 
 exports[`test/index.js TAP .override() sets a counter with custom labels > must match snapshot 1`] = `
-Counter {
+&ref_1 Counter {
   "aggregator": "sum",
   "hashMap": Object {
     "": Object {
@@ -72,12 +72,69 @@ Counter {
   "help": ".",
   "labelNames": Array [],
   "name": "custom_label_counter",
+  "registers": Array [
+    Registry {
+      "_collectors": Array [],
+      "_defaultLabels": Object {},
+      "_metrics": Object {
+        "custom_label_counter": <*ref_1>,
+      },
+    },
+  ],
 }
 `
 
 exports[`test/index.js TAP .override() sets a histogram with custom labels > must match snapshot 1`] = `
-Histogram {
+&ref_1 Histogram {
   "aggregator": "sum",
+  "buckets": Array [
+    0.001,
+    0.0012,
+    0.0013,
+    0.0015,
+    0.0017,
+    0.002,
+    0.0023,
+    0.0027,
+    0.0031,
+    0.0035,
+    0.004,
+    0.0047,
+    0.0054,
+    0.0062,
+    0.0071,
+    0.0081,
+    0.0094,
+    0.0108,
+    0.0124,
+    0.0142,
+    0.0164,
+    0.0188,
+    0.0216,
+    0.0249,
+    0.0286,
+    0.0329,
+    0.0379,
+    0.0435,
+    0.0501,
+    0.0576,
+    0.0662,
+    0.0761,
+    0.0876,
+    0.1007,
+    0.1158,
+    0.1332,
+    0.1532,
+    0.1761,
+    0.2025,
+    0.2329,
+    0.2679,
+    0.308,
+    0.3542,
+    0.4074,
+    0.4685,
+    null,
+  ],
   "bucketValues": Object {
     "0.001": 0,
     "0.0012": 0,
@@ -126,7 +183,6 @@ Histogram {
     "0.4685": 0,
     "Infinity": 0,
   },
-  "count": 0,
   "hashMap": Object {
     "": Object {
       "bucketValues": Object {
@@ -185,7 +241,15 @@ Histogram {
   "help": ".",
   "labelNames": Array [],
   "name": "custom_label_histogram",
-  "sum": 0,
+  "registers": Array [
+    Registry {
+      "_collectors": Array [],
+      "_defaultLabels": Object {},
+      "_metrics": Object {
+        "custom_label_histogram": <*ref_1>,
+      },
+    },
+  ],
   "upperBounds": Array [
     0.001,
     0.0012,
@@ -238,7 +302,7 @@ Histogram {
 `
 
 exports[`test/index.js TAP .override() sets a metric to be a counter > must match snapshot 1`] = `
-Counter {
+&ref_1 Counter {
   "aggregator": "sum",
   "hashMap": Object {
     "": Object {
@@ -249,12 +313,32 @@ Counter {
   "help": ".",
   "labelNames": Array [],
   "name": "valid_name",
+  "registers": Array [
+    Registry {
+      "_collectors": Array [],
+      "_defaultLabels": Object {},
+      "_metrics": Object {
+        "valid_name": <*ref_1>,
+      },
+    },
+  ],
 }
 `
 
 exports[`test/index.js TAP .override() sets a metric to be a histogram with specific buckets > must match snapshot 1`] = `
-Histogram {
+&ref_1 Histogram {
   "aggregator": "sum",
+  "buckets": Array [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32,
+    64,
+    128,
+    null,
+  ],
   "bucketValues": Object {
     "1": 0,
     "128": 0,
@@ -266,7 +350,6 @@ Histogram {
     "8": 0,
     "Infinity": 0,
   },
-  "count": 0,
   "hashMap": Object {
     "": Object {
       "bucketValues": Object {
@@ -288,7 +371,15 @@ Histogram {
   "help": ".",
   "labelNames": Array [],
   "name": "overridden_histogram",
-  "sum": 0,
+  "registers": Array [
+    Registry {
+      "_collectors": Array [],
+      "_defaultLabels": Object {},
+      "_metrics": Object {
+        "overridden_histogram": <*ref_1>,
+      },
+    },
+  ],
   "upperBounds": Array [
     1,
     2,
@@ -304,7 +395,7 @@ Histogram {
 `
 
 exports[`test/index.js TAP gauge metrics interpreted as counters > must match snapshot 1`] = `
-Gauge {
+&ref_1 Gauge {
   "aggregator": "sum",
   "hashMap": Object {
     "": Object {
@@ -315,11 +406,20 @@ Gauge {
   "help": ".",
   "labelNames": Array [],
   "name": "my_gauge",
+  "registers": Array [
+    Registry {
+      "_collectors": Array [],
+      "_defaultLabels": Object {},
+      "_metrics": Object {
+        "my_gauge": <*ref_1>,
+      },
+    },
+  ],
 }
 `
 
 exports[`test/index.js TAP metrics interpreted as a counter > must match snapshot 1`] = `
-Counter {
+&ref_1 Counter {
   "aggregator": "sum",
   "hashMap": Object {
     "": Object {
@@ -330,12 +430,69 @@ Counter {
   "help": ".",
   "labelNames": Array [],
   "name": "my_counter",
+  "registers": Array [
+    Registry {
+      "_collectors": Array [],
+      "_defaultLabels": Object {},
+      "_metrics": Object {
+        "my_counter": <*ref_1>,
+      },
+    },
+  ],
 }
 `
 
 exports[`test/index.js TAP metrics interpreted as a histogram > must match snapshot 1`] = `
-Histogram {
+&ref_1 Histogram {
   "aggregator": "sum",
+  "buckets": Array [
+    0.001,
+    0.0012,
+    0.0013,
+    0.0015,
+    0.0017,
+    0.002,
+    0.0023,
+    0.0027,
+    0.0031,
+    0.0035,
+    0.004,
+    0.0047,
+    0.0054,
+    0.0062,
+    0.0071,
+    0.0081,
+    0.0094,
+    0.0108,
+    0.0124,
+    0.0142,
+    0.0164,
+    0.0188,
+    0.0216,
+    0.0249,
+    0.0286,
+    0.0329,
+    0.0379,
+    0.0435,
+    0.0501,
+    0.0576,
+    0.0662,
+    0.0761,
+    0.0876,
+    0.1007,
+    0.1158,
+    0.1332,
+    0.1532,
+    0.1761,
+    0.2025,
+    0.2329,
+    0.2679,
+    0.308,
+    0.3542,
+    0.4074,
+    0.4685,
+    null,
+  ],
   "bucketValues": Object {
     "0.001": 0,
     "0.0012": 0,
@@ -384,7 +541,6 @@ Histogram {
     "0.4685": 0,
     "Infinity": 0,
   },
-  "count": 0,
   "hashMap": Object {
     "": Object {
       "bucketValues": Object {
@@ -443,7 +599,15 @@ Histogram {
   "help": ".",
   "labelNames": Array [],
   "name": "my_histogram",
-  "sum": 0,
+  "registers": Array [
+    Registry {
+      "_collectors": Array [],
+      "_defaultLabels": Object {},
+      "_metrics": Object {
+        "my_histogram": <*ref_1>,
+      },
+    },
+  ],
   "upperBounds": Array [
     0.001,
     0.0012,
@@ -496,7 +660,7 @@ Histogram {
 `
 
 exports[`test/index.js TAP metrics with labels > must match snapshot 1`] = `
-Counter {
+&ref_1 Counter {
   "aggregator": "sum",
   "hashMap": Object {
     "label1:one,label2:two": Object {
@@ -513,11 +677,20 @@ Counter {
     "label2",
   ],
   "name": "my_counter_with_labels",
+  "registers": Array [
+    Registry {
+      "_collectors": Array [],
+      "_defaultLabels": Object {},
+      "_metrics": Object {
+        "my_counter_with_labels": <*ref_1>,
+      },
+    },
+  ],
 }
 `
 
 exports[`test/index.js TAP mixed metrics interpreted correctly > must match snapshot 1`] = `
-Object {
+&ref_1 Object {
   "mixed_counter": Counter {
     "aggregator": "sum",
     "hashMap": Object {
@@ -529,6 +702,13 @@ Object {
     "help": ".",
     "labelNames": Array [],
     "name": "mixed_counter",
+    "registers": Array [
+      Registry {
+        "_collectors": Array [],
+        "_defaultLabels": Object {},
+        "_metrics": <*ref_1>,
+      },
+    ],
   },
   "mixed_gauge": Gauge {
     "aggregator": "sum",
@@ -541,9 +721,64 @@ Object {
     "help": ".",
     "labelNames": Array [],
     "name": "mixed_gauge",
+    "registers": Array [
+      Registry {
+        "_collectors": Array [],
+        "_defaultLabels": Object {},
+        "_metrics": <*ref_1>,
+      },
+    ],
   },
   "mixed_histogram": Histogram {
     "aggregator": "sum",
+    "buckets": Array [
+      0.001,
+      0.0012,
+      0.0013,
+      0.0015,
+      0.0017,
+      0.002,
+      0.0023,
+      0.0027,
+      0.0031,
+      0.0035,
+      0.004,
+      0.0047,
+      0.0054,
+      0.0062,
+      0.0071,
+      0.0081,
+      0.0094,
+      0.0108,
+      0.0124,
+      0.0142,
+      0.0164,
+      0.0188,
+      0.0216,
+      0.0249,
+      0.0286,
+      0.0329,
+      0.0379,
+      0.0435,
+      0.0501,
+      0.0576,
+      0.0662,
+      0.0761,
+      0.0876,
+      0.1007,
+      0.1158,
+      0.1332,
+      0.1532,
+      0.1761,
+      0.2025,
+      0.2329,
+      0.2679,
+      0.308,
+      0.3542,
+      0.4074,
+      0.4685,
+      null,
+    ],
     "bucketValues": Object {
       "0.001": 0,
       "0.0012": 0,
@@ -592,7 +827,6 @@ Object {
       "0.4685": 0,
       "Infinity": 0,
     },
-    "count": 0,
     "hashMap": Object {
       "": Object {
         "bucketValues": Object {
@@ -651,7 +885,13 @@ Object {
     "help": ".",
     "labelNames": Array [],
     "name": "mixed_histogram",
-    "sum": 0,
+    "registers": Array [
+      Registry {
+        "_collectors": Array [],
+        "_defaultLabels": Object {},
+        "_metrics": <*ref_1>,
+      },
+    ],
     "upperBounds": Array [
       0.001,
       0.0012,
@@ -712,6 +952,13 @@ Object {
     "help": ".",
     "labelNames": Array [],
     "name": "new_counter",
+    "registers": Array [
+      Registry {
+        "_collectors": Array [],
+        "_defaultLabels": Object {},
+        "_metrics": <*ref_1>,
+      },
+    ],
   },
   "new_gauge": Gauge {
     "aggregator": "sum",
@@ -724,9 +971,64 @@ Object {
     "help": ".",
     "labelNames": Array [],
     "name": "new_gauge",
+    "registers": Array [
+      Registry {
+        "_collectors": Array [],
+        "_defaultLabels": Object {},
+        "_metrics": <*ref_1>,
+      },
+    ],
   },
   "new_histogram": Histogram {
     "aggregator": "sum",
+    "buckets": Array [
+      0.001,
+      0.0012,
+      0.0013,
+      0.0015,
+      0.0017,
+      0.002,
+      0.0023,
+      0.0027,
+      0.0031,
+      0.0035,
+      0.004,
+      0.0047,
+      0.0054,
+      0.0062,
+      0.0071,
+      0.0081,
+      0.0094,
+      0.0108,
+      0.0124,
+      0.0142,
+      0.0164,
+      0.0188,
+      0.0216,
+      0.0249,
+      0.0286,
+      0.0329,
+      0.0379,
+      0.0435,
+      0.0501,
+      0.0576,
+      0.0662,
+      0.0761,
+      0.0876,
+      0.1007,
+      0.1158,
+      0.1332,
+      0.1532,
+      0.1761,
+      0.2025,
+      0.2329,
+      0.2679,
+      0.308,
+      0.3542,
+      0.4074,
+      0.4685,
+      null,
+    ],
     "bucketValues": Object {
       "0.001": 0,
       "0.0012": 0,
@@ -775,7 +1077,6 @@ Object {
       "0.4685": 0,
       "Infinity": 0,
     },
-    "count": 0,
     "hashMap": Object {
       "": Object {
         "bucketValues": Object {
@@ -834,7 +1135,13 @@ Object {
     "help": ".",
     "labelNames": Array [],
     "name": "new_histogram",
-    "sum": 0,
+    "registers": Array [
+      Registry {
+        "_collectors": Array [],
+        "_defaultLabels": Object {},
+        "_metrics": <*ref_1>,
+      },
+    ],
     "upperBounds": Array [
       0.001,
       0.0012,
@@ -885,12 +1192,10 @@ Object {
     ],
   },
   "new_summary": Summary {
-    "ageBuckets": undefined,
     "aggregator": "sum",
     "compressCount": 1000,
     "help": ".",
     "labelNames": Array [],
-    "maxAgeSeconds": undefined,
     "name": "new_summary",
     "percentiles": Array [
       0.01,
@@ -901,12 +1206,19 @@ Object {
       0.99,
       0.999,
     ],
+    "registers": Array [
+      Registry {
+        "_collectors": Array [],
+        "_defaultLabels": Object {},
+        "_metrics": <*ref_1>,
+      },
+    ],
   },
 }
 `
 
 exports[`test/index.js TAP new metrics with labels > must match snapshot 1`] = `
-Counter {
+&ref_1 Counter {
   "aggregator": "sum",
   "hashMap": Object {
     "label1:one,label2:two": Object {
@@ -923,5 +1235,14 @@ Counter {
     "label2",
   ],
   "name": "my_new_counter_with_labels",
+  "registers": Array [
+    Registry {
+      "_collectors": Array [],
+      "_defaultLabels": Object {},
+      "_metrics": Object {
+        "my_new_counter_with_labels": <*ref_1>,
+      },
+    },
+  ],
 }
 `

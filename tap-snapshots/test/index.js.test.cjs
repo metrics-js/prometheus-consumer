@@ -53,7 +53,6 @@ custom_label_histogram_bucket{le="0.308"} 0
 custom_label_histogram_bucket{le="0.3542"} 0
 custom_label_histogram_bucket{le="0.4074"} 0
 custom_label_histogram_bucket{le="0.4685"} 0
-custom_label_histogram_bucket{le="Infinity"} 1
 custom_label_histogram_bucket{le="+Inf"} 1
 custom_label_histogram_sum 12324
 custom_label_histogram_count 1
@@ -133,7 +132,6 @@ exports[`test/index.js TAP .override() sets a histogram with custom labels > mus
     0.3542,
     0.4074,
     0.4685,
-    null,
   ],
   "bucketValues": Object {
     "0.001": 0,
@@ -181,7 +179,6 @@ exports[`test/index.js TAP .override() sets a histogram with custom labels > mus
     "0.3542": 0,
     "0.4074": 0,
     "0.4685": 0,
-    "Infinity": 0,
   },
   "hashMap": Object {
     "": Object {
@@ -231,7 +228,6 @@ exports[`test/index.js TAP .override() sets a histogram with custom labels > mus
         "0.3542": 0,
         "0.4074": 0,
         "0.4685": 0,
-        "Infinity": 1,
       },
       "count": 1,
       "labels": Object {},
@@ -296,7 +292,6 @@ exports[`test/index.js TAP .override() sets a histogram with custom labels > mus
     0.3542,
     0.4074,
     0.4685,
-    null,
   ],
 }
 `
@@ -337,7 +332,6 @@ exports[`test/index.js TAP .override() sets a metric to be a histogram with spec
     32,
     64,
     128,
-    null,
   ],
   "bucketValues": Object {
     "1": 0,
@@ -348,7 +342,6 @@ exports[`test/index.js TAP .override() sets a metric to be a histogram with spec
     "4": 0,
     "64": 0,
     "8": 0,
-    "Infinity": 0,
   },
   "hashMap": Object {
     "": Object {
@@ -361,7 +354,6 @@ exports[`test/index.js TAP .override() sets a metric to be a histogram with spec
         "4": 0,
         "64": 0,
         "8": 0,
-        "Infinity": 1,
       },
       "count": 1,
       "labels": Object {},
@@ -389,7 +381,6 @@ exports[`test/index.js TAP .override() sets a metric to be a histogram with spec
     32,
     64,
     128,
-    null,
   ],
 }
 `
@@ -491,7 +482,6 @@ exports[`test/index.js TAP metrics interpreted as a histogram > must match snaps
     0.3542,
     0.4074,
     0.4685,
-    null,
   ],
   "bucketValues": Object {
     "0.001": 0,
@@ -539,7 +529,6 @@ exports[`test/index.js TAP metrics interpreted as a histogram > must match snaps
     "0.3542": 0,
     "0.4074": 0,
     "0.4685": 0,
-    "Infinity": 0,
   },
   "hashMap": Object {
     "": Object {
@@ -589,7 +578,6 @@ exports[`test/index.js TAP metrics interpreted as a histogram > must match snaps
         "0.3542": 0,
         "0.4074": 0,
         "0.4685": 0,
-        "Infinity": 1,
       },
       "count": 6,
       "labels": Object {},
@@ -654,7 +642,6 @@ exports[`test/index.js TAP metrics interpreted as a histogram > must match snaps
     0.3542,
     0.4074,
     0.4685,
-    null,
   ],
 }
 `
@@ -777,7 +764,6 @@ exports[`test/index.js TAP mixed metrics interpreted correctly > must match snap
       0.3542,
       0.4074,
       0.4685,
-      null,
     ],
     "bucketValues": Object {
       "0.001": 0,
@@ -825,7 +811,6 @@ exports[`test/index.js TAP mixed metrics interpreted correctly > must match snap
       "0.3542": 0,
       "0.4074": 0,
       "0.4685": 0,
-      "Infinity": 0,
     },
     "hashMap": Object {
       "": Object {
@@ -875,7 +860,6 @@ exports[`test/index.js TAP mixed metrics interpreted correctly > must match snap
           "0.3542": 0,
           "0.4074": 0,
           "0.4685": 0,
-          "Infinity": 0,
         },
         "count": 3,
         "labels": Object {},
@@ -938,7 +922,6 @@ exports[`test/index.js TAP mixed metrics interpreted correctly > must match snap
       0.3542,
       0.4074,
       0.4685,
-      null,
     ],
   },
   "new_counter": Counter {
@@ -1027,7 +1010,6 @@ exports[`test/index.js TAP mixed metrics interpreted correctly > must match snap
       0.3542,
       0.4074,
       0.4685,
-      null,
     ],
     "bucketValues": Object {
       "0.001": 0,
@@ -1075,7 +1057,6 @@ exports[`test/index.js TAP mixed metrics interpreted correctly > must match snap
       "0.3542": 0,
       "0.4074": 0,
       "0.4685": 0,
-      "Infinity": 0,
     },
     "hashMap": Object {
       "": Object {
@@ -1125,7 +1106,6 @@ exports[`test/index.js TAP mixed metrics interpreted correctly > must match snap
           "0.3542": 0,
           "0.4074": 0,
           "0.4685": 0,
-          "Infinity": 0,
         },
         "count": 1,
         "labels": Object {},
@@ -1188,7 +1168,6 @@ exports[`test/index.js TAP mixed metrics interpreted correctly > must match snap
       0.3542,
       0.4074,
       0.4685,
-      null,
     ],
   },
   "new_summary": Summary {

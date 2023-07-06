@@ -7,7 +7,7 @@
     "description": "A Streaming prometheus metrics consumer intended for use with @metrics/client metric streams",
     "main": "lib/index.js",
     "scripts": {
-        "test": "tap test/*.js",
+        "test": "tap test/*.js --no-check-coverage",
         "test:snapshot": "tap test/*.js --snapshot",
         "precommit": "lint-staged",
         "lint": "eslint .",

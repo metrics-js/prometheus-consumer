@@ -233,12 +233,10 @@ test('metrics with labels', (t) => {
             url: 'http://mylayout.com',
             method: 'GET',
             status: 200,
-            meta: {
-                buckets: [],
-                quantiles: [],
-                label1: 'one',
-                label2: 'two',
-            },
+            labels: [
+                { name: 'label1', value: 'one' },
+                { name: 'label2', value: 'two' },
+            ],
         },
     ]);
 
@@ -487,6 +485,61 @@ test('guard against bad metric data', (t) => {
 
     consumer.on('finish', () => {
         t.equal(errCount, 4);
+        t.end();
+    });
+
+    source.pipe(consumer);
+});
+
+test('should have correct bucket count', (t) => {
+    const consumer = new PrometheusMetricsConsumer({
+        client: promClient,
+    });
+
+    const source = src([
+        {
+            name: 'histogram_with_buckets',
+            description: '.',
+            time: 0.1,
+            meta: { buckets: [0.01, 0.1, 0.5, 1] },
+        },
+        {
+            name: 'histogram_with_buckets',
+            description: '.',
+            time: 0.1,
+            meta: { buckets: [0.01, 0.1, 0.5, 1] },
+        },
+        {
+            name: 'histogram_with_buckets',
+            description: '.',
+            time: 0.2,
+            meta: { buckets: [0.01, 0.1, 0.5, 1] },
+        },
+        {
+            name: 'histogram_with_buckets',
+            description: '.',
+            time: 0.3,
+            meta: { buckets: [0.01, 0.1, 0.5, 1] },
+        },
+        {
+            name: 'histogram_with_buckets',
+            description: '.',
+            time: 0.2,
+            meta: { buckets: [0.01, 0.1, 0.5, 1] },
+        },
+        {
+            name: 'histogram_with_buckets',
+            description: '.',
+            time: 0.9,
+            meta: { buckets: [0.01, 0.1, 0.5, 1] },
+        },
+    ]);
+
+    consumer.on('finish', () => {
+        const result = consumer.registry.getSingleMetric(
+            'histogram_with_buckets',
+        );
+        t.equal(result.buckets.length, 4);
         t.end();
     });
 

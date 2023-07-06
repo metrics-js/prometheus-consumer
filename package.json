@@ -1,51 +1,51 @@
 {
-    "name": "@metrics/prometheus-consumer",
-    "version": "4.0.0",
-    "files": [
-        "lib/"
+  "name": "@metrics/prometheus-consumer",
+  "version": "4.0.0",
+  "files": [
+    "lib/"
+  ],
+  "description": "A Streaming prometheus metrics consumer intended for use with @metrics/client metric streams",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "tap test/*.js --no-check-coverage",
+    "test:snapshot": "tap test/*.js --snapshot",
+    "precommit": "lint-staged",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
     ],
-    "description": "A Streaming prometheus metrics consumer intended for use with @metrics/client metric streams",
-    "main": "lib/index.js",
-    "scripts": {
-        "test": "tap test/*.js --no-check-coverage",
-        "test:snapshot": "tap test/*.js --snapshot",
-        "precommit": "lint-staged",
-        "lint": "eslint .",
-        "lint:fix": "eslint . --fix"
-    },
-    "lint-staged": {
-        "*.js": [
-            "eslint --fix",
-            "prettier --write",
-            "git add"
-        ],
-        "*.{md,json,yml}": [
-            "prettier --write",
-            "git add"
-        ],
-        ".eslintrc": [
-            "prettier --write",
-            "git add"
-        ]
-    },
-    "author": "Richard Walker <digitalsadhu@gmail.com>",
-    "dependencies": {
-        "abslog": "^2.4.0",
-        "readable-stream": "^3.4.0"
-    },
-    "devDependencies": {
-        "@metrics/metric": "2.3.1",
-        "eslint": "7.32.0",
-        "eslint-config-airbnb-base": "14.2.1",
-        "eslint-config-prettier": "8.8.0",
-        "eslint-plugin-import": "2.27.5",
-        "eslint-plugin-prettier": "3.4.1",
-        "lint-staged": "10.5.4",
-        "prettier": "2.8.8",
-        "prom-client": "13.2.0",
-        "tap": "16.3.7",
-        "@semantic-release/changelog": "6.0.3",
-        "@semantic-release/git": "10.0.1",
-        "semantic-release": "21.0.2"
-    }
+    "*.{md,json,yml}": [
+      "prettier --write",
+      "git add"
+    ],
+    ".eslintrc": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "author": "Richard Walker <digitalsadhu@gmail.com>",
+  "dependencies": {
+    "abslog": "^2.4.0",
+    "readable-stream": "^3.4.0"
+  },
+  "devDependencies": {
+    "@metrics/metric": "2.3.1",
+    "eslint": "7.32.0",
+    "eslint-config-airbnb-base": "14.2.1",
+    "eslint-config-prettier": "8.8.0",
+    "eslint-plugin-import": "2.27.5",
+    "eslint-plugin-prettier": "3.4.1",
+    "lint-staged": "10.5.4",
+    "prettier": "2.8.8",
+    "prom-client": "13.2.0",
+    "tap": "16.3.7",
+    "@semantic-release/changelog": "6.0.3",
+    "@semantic-release/git": "10.0.1",
+    "semantic-release": "21.0.2"
+  }
 }

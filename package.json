@@ -1,8 +1,10 @@
 {
     "name": "@metrics/prometheus-consumer",
     "version": "4.0.0",
+    "types": "prometheus-consumer.d.ts",
     "files": [
-        "lib/"
+        "lib/",
+        "prometheus-consumer.d.ts"
     ],
     "description": "A Streaming prometheus metrics consumer intended for use with @metrics/client metric streams",
     "main": "lib/index.js",

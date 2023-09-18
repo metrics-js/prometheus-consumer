@@ -15,7 +15,7 @@ declare class PrometheusConsumer extends Writable {
 
 declare namespace PrometheusConsumer {
     export type PrometheusConsumerOptions = {
-        client: typeof PrometheusClient;
+        client: PrometheusClient;
         logger?: AbstractLogger;
         bucketStepFactor?: number;
         bucketStepCount?: number;

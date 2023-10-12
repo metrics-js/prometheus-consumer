@@ -50,7 +50,7 @@
         "eslint-plugin-prettier": "3.4.1",
         "lint-staged": "10.5.4",
         "prettier": "2.8.8",
-        "prom-client": "13.2.0",
+        "prom-client": "14.2.0",
         "semantic-release": "22.0.7",
         "tap": "16.3.8"
     }

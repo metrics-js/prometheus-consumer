@@ -1,6 +1,6 @@
 import { Writable } from 'readable-stream';
 import { AbstractLogger } from 'abslog';
-import PrometheusClient, { Registry } from 'prom-client';
+import * as PrometheusClient from 'prom-client';
 
 declare class PrometheusConsumer extends Writable {
     constructor(options: PrometheusConsumer.PrometheusConsumerOptions);
@@ -9,13 +9,14 @@ declare class PrometheusConsumer extends Writable {
         metric: string,
         config: PrometheusConsumer.PrometheusConsumerOverrideConfig,
     ): void;
-    metrics(): ReturnType<Registry['metrics']>;
-    contentType(): Registry['contentType'];
+    readonly registry: PrometheusClient.Registry;
+    metrics(): ReturnType<PrometheusClient.Registry['metrics']>;
+    contentType(): PrometheusClient.Registry['contentType'];
 }
 
 declare namespace PrometheusConsumer {
     export type PrometheusConsumerOptions = {
-        client: PrometheusClient;
+        client: typeof PrometheusClient;
         logger?: AbstractLogger;
         bucketStepFactor?: number;
         bucketStepCount?: number;

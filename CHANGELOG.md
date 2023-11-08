@@ -1,3 +1,10 @@
+## [4.0.3](https://github.com/metrics-js/prometheus-consumer/compare/v4.0.2...v4.0.3) (2023-11-08)
+
+
+### Bug Fixes
+
+* add registry field to types and fix client from any ([0e245a6](https://github.com/metrics-js/prometheus-consumer/commit/0e245a6b1293f2d2d7a2eda2dccdd654c29d3f64))
+
 # Changelog
 
 Notable changes to this project will be documented in this file.

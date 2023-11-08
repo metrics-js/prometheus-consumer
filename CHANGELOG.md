@@ -67,4 +67,4 @@ The latest version of this document is always available in [releases][releases-u
 [2.0.2]: https://github.com/metrics-js/prometheus-consumer/compare/v2.0.1...v2.0.2
 [2.0.1]: https://github.com/metrics-js/prometheus-consumer/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/metrics-js/prometheus-consumer/compare/v1.0.0...v2.0.0
-[releases-url]: https://github.com/metrics-js/prometheus-consumer/blob/master/CHANGELOG.md
+[releases-url]: https://github.com/metrics-js/prometheus-consumer/blob/main/CHANGELOG.md

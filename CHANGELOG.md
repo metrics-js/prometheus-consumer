@@ -1,3 +1,11 @@
+## [4.0.2](https://github.com/metrics-js/prometheus-consumer/compare/v4.0.1...v4.0.2) (2023-11-08)
+
+
+### Bug Fixes
+
+* cjs-shaped type declaration ([7f2b6e0](https://github.com/metrics-js/prometheus-consumer/commit/7f2b6e0e0bcd7dd725417455e19e58dd7e2867e1))
+* remove typeof that casued issues ([62405b0](https://github.com/metrics-js/prometheus-consumer/commit/62405b01a313c9a2c5144f163a6ad2f2672a9f33))
+
 # Changelog
 
 Notable changes to this project will be documented in this file.

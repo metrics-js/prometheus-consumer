@@ -19,7 +19,7 @@ concurrency:
 jobs:
     test:
         name: Test
-        runs-on: [self-hosted, ubuntu-latest-no-docker, developer-foundations]
+        runs-on: ubuntu-latest
         strategy:
             matrix:
                 os: [ubuntu-latest, macOS-latest, windows-latest]
@@ -41,7 +41,7 @@ jobs:
 
     release:
         name: Release
-        runs-on: [self-hosted, ubuntu-latest-no-docker, developer-foundations]
+        runs-on: ubuntu-latest
         needs: [test]
         steps:
             - name: Checkout

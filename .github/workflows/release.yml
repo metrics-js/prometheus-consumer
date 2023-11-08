@@ -59,4 +59,4 @@ jobs:
               run: npx semantic-release
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  NPM_TOKEN: ${{ env.ARTIFACTORY_NPM_SECRET }}
+                  NPM_TOKEN: ${{ env.NPM_TOKEN }}

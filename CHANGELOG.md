@@ -4,7 +4,9 @@ Notable changes to this project will be documented in this file.
 
 The latest version of this document is always available in [releases][releases-url].
 
-## [Unreleased]
+## [4.0.2] - 2023-09-19
+
+-   Fixing type information [#76](https://github.com/metrics-js/prometheus-consumer/pull/76)
 
 ## [3.0.0] - 2020-01-09
 
@@ -55,7 +57,7 @@ The latest version of this document is always available in [releases][releases-u
 -   .contentType() method added
 -   lint fixing
 
-[unreleased]: https://github.com/metrics-js/prometheus-consumer/compare/v3.0.0...HEAD
+[4.0.2]: https://github.com/metrics-js/prometheus-consumer/compare/v3.0.0...v4.0.2
 [3.0.0]: https://github.com/metrics-js/prometheus-consumer/compare/v2.2.0...v3.0.0
 [2.2.0]: https://github.com/metrics-js/prometheus-consumer/compare/v2.1.3...v2.2.0
 [2.1.3]: https://github.com/metrics-js/prometheus-consumer/compare/v2.1.2...v2.1.3

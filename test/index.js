@@ -545,3 +545,57 @@ test('should have correct bucket count', (t) => {
 
     source.pipe(consumer);
 });
+
+test('should log errors according to abslog contract', (t) => {
+    let errObject;
+    let errMsg = '';
+    const log = () => {};
+    const err = (obj, msg) => {
+        errObject = obj;
+        errMsg = msg;
+    };
+
+    const mockLogger = {
+        trace: log,
+        debug: log,
+        info: log,
+        warn: log,
+        error: err,
+        fatal: log,
+    };
+    const consumer = new PrometheusMetricsConsumer({
+        logger: mockLogger,
+        client: promClient,
+    });
+
+    const source = src([
+        {},
+        '',
+        { name: 'test' },
+        new Metric({
+            name: 'test3',
+            description: '.',
+            labels: [{ name: 'label3', value: 'one' }],
+            value: 1,
+            type: 2,
+        }),
+        new Metric({
+            name: 'test3',
+            description: '.',
+            labels: [
+                { name: 'label3', value: 'one' },
+                { name: 'label4', value: 'two' },
+            ],
+            value: 1,
+            type: 2,
+        }),
+    ]);
+
+    consumer.on('finish', () => {
+        t.match(errObject, /Error/);
+        t.match(errMsg, 'failed to generate prometheus counter for metric');
+        t.end();
+    });
+
+    source.pipe(consumer);
+});

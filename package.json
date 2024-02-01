@@ -1,6 +1,6 @@
 {
     "name": "@metrics/prometheus-consumer",
-    "version": "4.0.3",
+    "version": "4.0.4",
     "types": "prometheus-consumer.d.ts",
     "files": [
         "lib/",

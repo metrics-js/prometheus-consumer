@@ -1,3 +1,10 @@
+## [4.0.4](https://github.com/metrics-js/prometheus-consumer/compare/v4.0.3...v4.0.4) (2024-02-01)
+
+
+### Bug Fixes
+
+* ensures errors are logged with the error ([4840ca5](https://github.com/metrics-js/prometheus-consumer/commit/4840ca58a779c76995c972caac446749e04deb59))
+
 ## [4.0.3](https://github.com/metrics-js/prometheus-consumer/compare/v4.0.2...v4.0.3) (2023-11-08)
 
 

@@ -7,5 +7,5 @@ A prometheus based streaming consumer for metric streams.
 
 ## Usage
 
-- [Getting started with MetricsJS](https://metrics-js.github.io/introduction/getting-started/).
-- [Reference documentaiton for `@metrics/prometheus-consumer`](https://metrics-js.github.io/reference/prometheus-consumer/).
+-   [Getting started with MetricsJS](https://metrics-js.github.io/introduction/getting-started/).
+-   [Reference documentaiton for `@metrics/prometheus-consumer`](https://metrics-js.github.io/reference/prometheus-consumer/).

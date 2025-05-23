@@ -8,5 +8,4 @@ tmp/**/*
 *.log
 coverage
 .vscode
-package-lock.json
 .nyc_output

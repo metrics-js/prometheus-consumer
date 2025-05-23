@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/index.js TAP .metrics() method > must match snapshot 1`] = `
+exports[`test/index.js > TAP > .metrics() method > must match snapshot 1`] = `
 # HELP custom_label_histogram .
 # TYPE custom_label_histogram histogram
 custom_label_histogram_bucket{le="0.001"} 0
@@ -59,7 +59,7 @@ custom_label_histogram_count 1
 
 `
 
-exports[`test/index.js TAP .override() sets a counter with custom labels > must match snapshot 1`] = `
+exports[`test/index.js > TAP > .override() sets a counter with custom labels > must match snapshot 1`] = `
 &ref_1 Counter {
   "aggregator": "sum",
   "hashMap": Object {
@@ -83,7 +83,7 @@ exports[`test/index.js TAP .override() sets a counter with custom labels > must 
 }
 `
 
-exports[`test/index.js TAP .override() sets a histogram with custom labels > must match snapshot 1`] = `
+exports[`test/index.js > TAP > .override() sets a histogram with custom labels > must match snapshot 1`] = `
 &ref_1 Histogram {
   "aggregator": "sum",
   "buckets": Array [
@@ -296,7 +296,7 @@ exports[`test/index.js TAP .override() sets a histogram with custom labels > mus
 }
 `
 
-exports[`test/index.js TAP .override() sets a metric to be a counter > must match snapshot 1`] = `
+exports[`test/index.js > TAP > .override() sets a metric to be a counter > must match snapshot 1`] = `
 &ref_1 Counter {
   "aggregator": "sum",
   "hashMap": Object {
@@ -320,7 +320,7 @@ exports[`test/index.js TAP .override() sets a metric to be a counter > must matc
 }
 `
 
-exports[`test/index.js TAP .override() sets a metric to be a histogram with specific buckets > must match snapshot 1`] = `
+exports[`test/index.js > TAP > .override() sets a metric to be a histogram with specific buckets > must match snapshot 1`] = `
 &ref_1 Histogram {
   "aggregator": "sum",
   "buckets": Array [
@@ -385,7 +385,7 @@ exports[`test/index.js TAP .override() sets a metric to be a histogram with spec
 }
 `
 
-exports[`test/index.js TAP gauge metrics interpreted as counters > must match snapshot 1`] = `
+exports[`test/index.js > TAP > gauge metrics interpreted as counters > must match snapshot 1`] = `
 &ref_1 Gauge {
   "aggregator": "sum",
   "hashMap": Object {
@@ -409,7 +409,7 @@ exports[`test/index.js TAP gauge metrics interpreted as counters > must match sn
 }
 `
 
-exports[`test/index.js TAP metrics interpreted as a counter > must match snapshot 1`] = `
+exports[`test/index.js > TAP > metrics interpreted as a counter > must match snapshot 1`] = `
 &ref_1 Counter {
   "aggregator": "sum",
   "hashMap": Object {
@@ -433,7 +433,7 @@ exports[`test/index.js TAP metrics interpreted as a counter > must match snapsho
 }
 `
 
-exports[`test/index.js TAP metrics interpreted as a histogram > must match snapshot 1`] = `
+exports[`test/index.js > TAP > metrics interpreted as a histogram > must match snapshot 1`] = `
 &ref_1 Histogram {
   "aggregator": "sum",
   "buckets": Array [
@@ -646,7 +646,7 @@ exports[`test/index.js TAP metrics interpreted as a histogram > must match snaps
 }
 `
 
-exports[`test/index.js TAP metrics with labels > must match snapshot 1`] = `
+exports[`test/index.js > TAP > metrics with labels > must match snapshot 1`] = `
 &ref_1 Counter {
   "aggregator": "sum",
   "hashMap": Object {
@@ -676,7 +676,7 @@ exports[`test/index.js TAP metrics with labels > must match snapshot 1`] = `
 }
 `
 
-exports[`test/index.js TAP mixed metrics interpreted correctly > must match snapshot 1`] = `
+exports[`test/index.js > TAP > mixed metrics interpreted correctly > must match snapshot 1`] = `
 &ref_1 Object {
   "mixed_counter": Counter {
     "aggregator": "sum",
@@ -1196,7 +1196,7 @@ exports[`test/index.js TAP mixed metrics interpreted correctly > must match snap
 }
 `
 
-exports[`test/index.js TAP new metrics with labels > must match snapshot 1`] = `
+exports[`test/index.js > TAP > new metrics with labels > must match snapshot 1`] = `
 &ref_1 Counter {
   "aggregator": "sum",
   "hashMap": Object {

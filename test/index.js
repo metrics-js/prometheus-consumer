@@ -212,7 +212,7 @@ test("time metrics overridden to be summaries", (t) => {
 	source.pipe(consumer);
 
 	consumer.on("finish", () => {
-		t.true(consumer.registry._metrics.time_series instanceof promClient.Summary);
+		t.ok(consumer.registry._metrics.time_series instanceof promClient.Summary);
 		t.end();
 	});
 });

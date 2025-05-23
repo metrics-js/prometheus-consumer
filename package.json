@@ -9,26 +9,9 @@
   "description": "A Streaming prometheus metrics consumer intended for use with @metrics/client metric streams",
   "main": "lib/index.js",
   "scripts": {
-    "test": "tap test/*.js --no-check-coverage",
-    "test:snapshot": "tap test/*.js --snapshot",
-    "precommit": "lint-staged",
+    "test": "tap test/*.js --disable-coverage --allow-empty-coverage",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "prettier --write",
-      "git add"
-    ],
-    "*.{md,json,yml}": [
-      "prettier --write",
-      "git add"
-    ],
-    ".eslintrc": [
-      "prettier --write",
-      "git add"
-    ]
   },
   "author": "Richard Walker <digitalsadhu@gmail.com>",
   "dependencies": {
@@ -50,6 +33,6 @@
     "prettier": "3.3.2",
     "prom-client": "14.2.0",
     "semantic-release": "24.2.1",
-    "tap": "16.3.8"
+    "tap": "21.1.0"
   }
 }

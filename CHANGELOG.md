@@ -1,3 +1,10 @@
+## [4.0.5](https://github.com/metrics-js/prometheus-consumer/compare/v4.0.4...v4.0.5) (2025-06-17)
+
+
+### Bug Fixes
+
+* include the metric and label names in deprecation warning ([#114](https://github.com/metrics-js/prometheus-consumer/issues/114)) ([6726816](https://github.com/metrics-js/prometheus-consumer/commit/672681606ce6304744e93c33b3bb5205710de3ee))
+
 ## [4.0.4](https://github.com/metrics-js/prometheus-consumer/compare/v4.0.3...v4.0.4) (2024-02-01)
 
 

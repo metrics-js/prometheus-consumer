@@ -31,7 +31,7 @@
     "globals": "16.5.0",
     "prettier": "3.7.4",
     "prom-client": "14.2.0",
-    "semantic-release": "25.0.2",
+    "semantic-release": "25.0.3",
     "tap": "21.5.0"
   }
 }

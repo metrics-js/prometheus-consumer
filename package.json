@@ -25,11 +25,11 @@
   "devDependencies": {
     "@metrics/semantic-release-config": "1.0.0",
     "@metrics/metric": "2.3.4",
-    "eslint": "9.39.1",
+    "eslint": "9.39.2",
     "eslint-config-prettier": "10.1.8",
-    "eslint-plugin-prettier": "5.5.4",
+    "eslint-plugin-prettier": "5.5.5",
     "globals": "16.5.0",
-    "prettier": "3.7.4",
+    "prettier": "3.8.1",
     "prom-client": "14.2.0",
     "semantic-release": "25.0.3",
     "tap": "21.5.0"

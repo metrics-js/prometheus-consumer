@@ -25,7 +25,7 @@
   "devDependencies": {
     "@metrics/semantic-release-config": "1.0.0",
     "@metrics/metric": "2.3.4",
-    "eslint": "9.39.3",
+    "eslint": "9.39.4",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-prettier": "5.5.5",
     "globals": "16.5.0",

@@ -32,6 +32,6 @@
     "prettier": "3.9.9",
     "prom-client": "14.2.0",
     "semantic-release": "25.0.9",
-    "tap": "21.7.5"
+    "tap": "21.8.0"
   }
 }
